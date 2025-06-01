@@ -1,0 +1,75 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: hue
+      meta.helm.sh/release-namespace: default
+      pv.kubernetes.io/bound-by-controller: "yes"
+    creationTimestamp: "2025-05-31T06:54:12Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      type: local
+    name: postgres-pv
+    resourceVersion: "156972"
+    uid: 64cc290f-90ae-4c1a-86dd-45134f1806e9
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 2Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: postgres-pvc
+      namespace: default
+      resourceVersion: "155564"
+      uid: 077a3cbb-046f-463a-9d47-8d209becf1e6
+    hostPath:
+      path: /data/postgres-pv
+      type: ""
+    persistentVolumeReclaimPolicy: Retain
+    storageClassName: microk8s-hostpath
+    volumeMode: Filesystem
+  status:
+    lastPhaseTransitionTime: "2025-05-31T07:11:59Z"
+    phase: Released
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      hostPathProvisionerIdentity: 718668fc-7711-4c4a-9c36-75773fae0369
+      pv.kubernetes.io/provisioned-by: k8s.io/minikube-hostpath
+    creationTimestamp: "2025-05-31T07:17:28Z"
+    finalizers:
+    - kubernetes.io/pv-protection
+    name: pvc-0e550bfc-65f9-4832-a2a6-258348e67384
+    resourceVersion: "157327"
+    uid: 85a19042-4a50-4d01-95f7-aaea3d75deb5
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 5Gi
+    claimRef:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      name: postgres-pvc
+      namespace: default
+      resourceVersion: "157308"
+      uid: 0e550bfc-65f9-4832-a2a6-258348e67384
+    hostPath:
+      path: /tmp/hostpath-provisioner/default/postgres-pvc
+      type: ""
+    persistentVolumeReclaimPolicy: Delete
+    storageClassName: standard
+    volumeMode: Filesystem
+  status:
+    lastPhaseTransitionTime: "2025-05-31T07:17:28Z"
+    phase: Bound
+kind: List
+metadata:
+  resourceVersion: ""

@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: hue
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2025-05-31T06:54:12Z"
+  labels:
+    app.kubernetes.io/managed-by: Helm
+    pod: hue
+  name: hue
+  namespace: default
+  resourceVersion: "155571"
+  uid: 721bdc7b-c919-4a2a-93ca-1a7d091a1477
+spec:
+  clusterIP: 10.101.110.157
+  clusterIPs:
+  - 10.101.110.157
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: hue
+    nodePort: 31299
+    port: 8888
+    protocol: TCP
+    targetPort: 8888
+  selector:
+    pod: hue
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

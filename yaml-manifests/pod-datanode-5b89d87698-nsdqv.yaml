@@ -1,0 +1,138 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2025-05-31T10:13:30Z"
+  generateName: datanode-5b89d87698-
+  labels:
+    app: datanode
+    pod-template-hash: 5b89d87698
+  name: datanode-5b89d87698-nsdqv
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: datanode-5b89d87698
+    uid: 452c6ce8-080a-4486-aa41-a06119891449
+  resourceVersion: "202194"
+  uid: 18adbb9a-113f-4731-8689-31207293c16c
+spec:
+  containers:
+  - env:
+    - name: CORE_CONF_fs_defaultFS
+      value: hdfs://namenode:8020
+    - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+      value: "false"
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    imagePullPolicy: IfNotPresent
+    name: datanode
+    ports:
+    - containerPort: 9864
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /hadoop/dfs/data
+      name: datanode-storage
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-rkq8k
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - emptyDir: {}
+    name: datanode-storage
+  - name: kube-api-access-rkq8k
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:14Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T10:13:30Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:14Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:14Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T10:13:30Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://5acad42b4e113a829d627fde092569f69c6b435950be2597fccc6cfa4b6715a2
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    imageID: docker-pullable://bde2020/hadoop-datanode@sha256:ddf6e9ad55af4f73d2ccb6da31d9e3331ffb94d5f046126db4f40aa348d484bf
+    lastState:
+      terminated:
+        containerID: docker://59d3ec070f09c7e1735bfe1a062e7993f57751cd6c6aeca1936977ffc3915b0b
+        exitCode: 255
+        finishedAt: "2025-06-01T06:18:36Z"
+        reason: Error
+        startedAt: "2025-05-31T10:15:42Z"
+    name: datanode
+    ready: true
+    restartCount: 1
+    started: true
+    state:
+      running:
+        startedAt: "2025-06-01T06:19:08Z"
+    volumeMounts:
+    - mountPath: /hadoop/dfs/data
+      name: datanode-storage
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-rkq8k
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 192.168.49.2
+  hostIPs:
+  - ip: 192.168.49.2
+  phase: Running
+  podIP: 10.244.0.158
+  podIPs:
+  - ip: 10.244.0.158
+  qosClass: BestEffort
+  startTime: "2025-05-31T10:13:30Z"

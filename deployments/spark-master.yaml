@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"spark-master","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"spark-master"}},"template":{"metadata":{"labels":{"app":"spark-master"}},"spec":{"containers":[{"args":["# Start Spark master\n/spark/bin/spark-class org.apache.spark.deploy.master.Master             --host 0.0.0.0             --port 7077             --webui-port 8080\n"],"command":["/bin/bash","-c"],"env":[{"name":"SPARK_MASTER_HOST","value":"0.0.0.0"},{"name":"SPARK_MASTER_PORT","value":"7077"},{"name":"SPARK_MASTER_WEBUI_PORT","value":"8080"},{"name":"SPARK_CONF_DIR","value":"/spark/conf"}],"image":"bde2020/spark-master:3.3.0-hadoop3.3","name":"spark-master","ports":[{"containerPort":8080},{"containerPort":7077}]}]}}}}
+  creationTimestamp: "2025-05-31T12:48:38Z"
+  generation: 1
+  name: spark-master
+  namespace: default
+  resourceVersion: "202170"
+  uid: c3a199f0-0986-47db-9dee-2cf41e091136
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: spark-master
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: spark-master
+    spec:
+      containers:
+      - args:
+        - |
+          # Start Spark master
+          /spark/bin/spark-class org.apache.spark.deploy.master.Master             --host 0.0.0.0             --port 7077             --webui-port 8080
+        command:
+        - /bin/bash
+        - -c
+        env:
+        - name: SPARK_MASTER_HOST
+          value: 0.0.0.0
+        - name: SPARK_MASTER_PORT
+          value: "7077"
+        - name: SPARK_MASTER_WEBUI_PORT
+          value: "8080"
+        - name: SPARK_CONF_DIR
+          value: /spark/conf
+        image: bde2020/spark-master:3.3.0-hadoop3.3
+        imagePullPolicy: IfNotPresent
+        name: spark-master
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 7077
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2025-05-31T12:48:38Z"
+    lastUpdateTime: "2025-05-31T12:50:08Z"
+    message: ReplicaSet "spark-master-555c884564" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2025-06-01T06:19:13Z"
+    lastUpdateTime: "2025-06-01T06:19:13Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

@@ -1,0 +1,519 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"datanode"},"name":"datanode","namespace":"default"},"spec":{"ports":[{"name":"datanode","port":9864}],"selector":{"app":"datanode"},"type":"ClusterIP"}}
+    creationTimestamp: "2025-05-31T10:13:30Z"
+    labels:
+      app: datanode
+    name: datanode
+    namespace: default
+    resourceVersion: "195941"
+    uid: 2b5755e1-c2c2-4744-adba-9ce1aa1f5d10
+  spec:
+    clusterIP: 10.98.145.126
+    clusterIPs:
+    - 10.98.145.126
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: datanode
+      port: 9864
+      protocol: TCP
+      targetPort: 9864
+    selector:
+      app: datanode
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"hive-metastore","namespace":"default"},"spec":{"ports":[{"port":9083,"targetPort":9083}],"selector":{"app":"hive-metastore"}}}
+    creationTimestamp: "2025-05-31T10:13:30Z"
+    name: hive-metastore
+    namespace: default
+    resourceVersion: "163623"
+    uid: 689534c3-6e9b-4676-9969-ac46d97bec24
+  spec:
+    clusterIP: 10.105.44.152
+    clusterIPs:
+    - 10.105.44.152
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 9083
+      protocol: TCP
+      targetPort: 9083
+    selector:
+      app: hive-metastore
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"hive-metastore-fixed","namespace":"default"},"spec":{"ports":[{"port":9083,"targetPort":9083}],"selector":{"app":"hive-metastore-fixed"}}}
+    creationTimestamp: "2025-05-31T10:24:33Z"
+    name: hive-metastore-fixed
+    namespace: default
+    resourceVersion: "164750"
+    uid: 6c8422c4-432f-4992-8fe6-bb1ff666dd9b
+  spec:
+    clusterIP: 10.106.102.155
+    clusterIPs:
+    - 10.106.102.155
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 9083
+      protocol: TCP
+      targetPort: 9083
+    selector:
+      app: hive-metastore-fixed
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"hive-metastore-service","namespace":"default"},"spec":{"ports":[{"port":9083,"targetPort":9083}],"selector":{"app":"hive-metastore"}}}
+    creationTimestamp: "2025-05-31T09:58:02Z"
+    name: hive-metastore-service
+    namespace: default
+    resourceVersion: "162126"
+    uid: 3d4c5580-0ba3-46d0-83ac-d1ff26e4c8f4
+  spec:
+    clusterIP: 10.100.124.72
+    clusterIPs:
+    - 10.100.124.72
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 9083
+      protocol: TCP
+      targetPort: 9083
+    selector:
+      app: hive-metastore
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"hiveserver2","namespace":"default"},"spec":{"ports":[{"name":"thrift","port":10000,"targetPort":10000},{"name":"web","port":10002,"targetPort":10002}],"selector":{"app":"hiveserver2"}}}
+    creationTimestamp: "2025-05-31T10:13:31Z"
+    name: hiveserver2
+    namespace: default
+    resourceVersion: "163635"
+    uid: cd04e2f1-eb00-4a7b-90ae-2cfcbf8f5c1f
+  spec:
+    clusterIP: 10.111.23.215
+    clusterIPs:
+    - 10.111.23.215
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: thrift
+      port: 10000
+      protocol: TCP
+      targetPort: 10000
+    - name: web
+      port: 10002
+      protocol: TCP
+      targetPort: 10002
+    selector:
+      app: hiveserver2
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"hiveserver2-service","namespace":"default"},"spec":{"ports":[{"name":"thrift","port":10000,"targetPort":10000},{"name":"web","port":10002,"targetPort":10002}],"selector":{"app":"hiveserver2"}}}
+    creationTimestamp: "2025-05-31T09:58:03Z"
+    name: hiveserver2-service
+    namespace: default
+    resourceVersion: "162149"
+    uid: 0670aa1a-c913-4f09-9fcb-c4e3a231799c
+  spec:
+    clusterIP: 10.111.0.16
+    clusterIPs:
+    - 10.111.0.16
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: thrift
+      port: 10000
+      protocol: TCP
+      targetPort: 10000
+    - name: web
+      port: 10002
+      protocol: TCP
+      targetPort: 10002
+    selector:
+      app: hiveserver2
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: hue
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2025-05-31T06:54:12Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      pod: hue
+    name: hue
+    namespace: default
+    resourceVersion: "155571"
+    uid: 721bdc7b-c919-4a2a-93ca-1a7d091a1477
+  spec:
+    clusterIP: 10.101.110.157
+    clusterIPs:
+    - 10.101.110.157
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: hue
+      nodePort: 31299
+      port: 8888
+      protocol: TCP
+      targetPort: 8888
+    selector:
+      pod: hue
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: hue
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2025-05-31T06:54:12Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: hue-balancer
+    namespace: default
+    resourceVersion: "155581"
+    uid: 8a6476b8-fd9c-4d31-a953-22b78565d241
+  spec:
+    clusterIP: 10.98.192.123
+    clusterIPs:
+    - 10.98.192.123
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 30088
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      pod: hue
+    sessionAffinity: ClientIP
+    sessionAffinityConfig:
+      clientIP:
+        timeoutSeconds: 86400
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"hue-complete","namespace":"default"},"spec":{"ports":[{"port":8888,"targetPort":8888}],"selector":{"app":"hue-complete"},"type":"LoadBalancer"}}
+    creationTimestamp: "2025-05-31T10:13:31Z"
+    name: hue-complete
+    namespace: default
+    resourceVersion: "163657"
+    uid: 301f239a-8898-4287-a4a8-2cc93ca2a178
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.98.32.51
+    clusterIPs:
+    - 10.98.32.51
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 31619
+      port: 8888
+      protocol: TCP
+      targetPort: 8888
+    selector:
+      app: hue-complete
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2025-05-28T12:40:15Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "116129"
+    uid: d8306fe5-8329-4054-a4e0-32dc5c64979d
+  spec:
+    clusterIP: 10.96.0.1
+    clusterIPs:
+    - 10.96.0.1
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"livy-service","namespace":"default"},"spec":{"ports":[{"port":8998,"targetPort":8998}],"selector":{"app":"livy"}}}
+    creationTimestamp: "2025-05-31T09:58:03Z"
+    name: livy-service
+    namespace: default
+    resourceVersion: "162188"
+    uid: af9b17bc-39b3-4d3a-91b5-4c338a6cf7c2
+  spec:
+    clusterIP: 10.105.242.141
+    clusterIPs:
+    - 10.105.242.141
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8998
+      protocol: TCP
+      targetPort: 8998
+    selector:
+      app: livy
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"namenode"},"name":"namenode","namespace":"default"},"spec":{"ports":[{"name":"hdfs","port":8020,"protocol":"TCP","targetPort":8020},{"name":"web","port":9870,"protocol":"TCP","targetPort":9870}],"selector":{"app":"namenode"},"type":"ClusterIP"}}
+    creationTimestamp: "2025-05-31T10:13:30Z"
+    labels:
+      app: namenode
+    name: namenode
+    namespace: default
+    resourceVersion: "200866"
+    uid: 75a328d5-68b9-461c-88d8-9dd122c53419
+  spec:
+    clusterIP: 10.98.84.203
+    clusterIPs:
+    - 10.98.84.203
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: hdfs
+      port: 8020
+      protocol: TCP
+      targetPort: 8020
+    - name: web
+      port: 9870
+      protocol: TCP
+      targetPort: 9870
+    selector:
+      app: namenode
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"namenode-service","namespace":"default"},"spec":{"ports":[{"name":"hdfs","port":9000,"targetPort":9000},{"name":"web","port":9870,"targetPort":9870}],"selector":{"app":"namenode"}}}
+    creationTimestamp: "2025-05-31T09:58:02Z"
+    name: namenode-service
+    namespace: default
+    resourceVersion: "196763"
+    uid: 8d5c4b0f-b9b6-4db5-a266-974070ca7a92
+  spec:
+    clusterIP: 10.99.254.92
+    clusterIPs:
+    - 10.99.254.92
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: hdfs
+      port: 9000
+      protocol: TCP
+      targetPort: 8020
+    - name: web
+      port: 9870
+      protocol: TCP
+      targetPort: 9870
+    selector:
+      app: namenode
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"postgres-hue","namespace":"default"},"spec":{"ports":[{"port":5432,"protocol":"TCP","targetPort":5432}],"selector":{"app":"postgres-hue"}}}
+    creationTimestamp: "2025-05-31T07:17:28Z"
+    name: postgres-hue
+    namespace: default
+    resourceVersion: "157313"
+    uid: 52b85de4-88f3-4451-8a91-32e9e33a8ecc
+  spec:
+    clusterIP: 10.104.75.109
+    clusterIPs:
+    - 10.104.75.109
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 5432
+      protocol: TCP
+      targetPort: 5432
+    selector:
+      app: postgres-hue
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"spark-master","namespace":"default"},"spec":{"ports":[{"name":"web","port":8080,"targetPort":8080},{"name":"spark","port":7077,"targetPort":7077}],"selector":{"app":"spark-master"}}}
+    creationTimestamp: "2025-05-31T10:13:30Z"
+    name: spark-master
+    namespace: default
+    resourceVersion: "163604"
+    uid: b606f81b-f016-4398-b989-134e572370f1
+  spec:
+    clusterIP: 10.109.38.71
+    clusterIPs:
+    - 10.109.38.71
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: web
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    - name: spark
+      port: 7077
+      protocol: TCP
+      targetPort: 7077
+    selector:
+      app: spark-master
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"spark-master-service","namespace":"default"},"spec":{"ports":[{"name":"spark","port":7077,"targetPort":7077},{"name":"web","port":8080,"targetPort":8080}],"selector":{"app":"spark-master"}}}
+    creationTimestamp: "2025-05-31T09:58:03Z"
+    name: spark-master-service
+    namespace: default
+    resourceVersion: "162171"
+    uid: 204624c2-1615-45b0-a05e-406f631e9c03
+  spec:
+    clusterIP: 10.101.207.233
+    clusterIPs:
+    - 10.101.207.233
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: spark
+      port: 7077
+      protocol: TCP
+      targetPort: 7077
+    - name: web
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: spark-master
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""

@@ -1,0 +1,17 @@
+apiVersion: v1
+data:
+  hue.ini: "[desktop]\nsecret_key=MyHueSecretKey123\nhttp_host=0.0.0.0\nhttp_port=8888\ntime_zone=Asia/Kolkata\ndjango_debug_mode=false\n\n[database]\nengine=postgresql_psycopg2\nhost=postgres-hue-service\nport=5432\nuser=hue\npassword=huepassword\nname=hue\n\n#
+    Hive Configuration\n[beeswax]\nhive_server_host=hiveserver2-service\nhive_server_port=10000\nserver_interface=hiveserver2\n\n#
+    Hadoop Configuration  \n[hadoop]\n[[hdfs_clusters]]\n[[[default]]]\nfs_defaultfs=hdfs://namenode-service:9000\nwebhdfs_url=http://namenode-service:9870/webhdfs/v1\n\n[[yarn_clusters]]\n[[[default]]]\nresourcemanager_host=resourcemanager-service\nresourcemanager_port=8088\n\n#
+    Spark Configuration\n[spark]\nlivy_server_host=livy-service\nlivy_server_port=8998\n\n#
+    Job Browser\n[jobbrowser]\n[[yarn_clusters]]\n[[[default]]]\nresourcemanager_host=resourcemanager-service\nresourcemanager_port=8088\n"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"hue.ini":"[desktop]\nsecret_key=MyHueSecretKey123\nhttp_host=0.0.0.0\nhttp_port=8888\ntime_zone=Asia/Kolkata\ndjango_debug_mode=false\n\n[database]\nengine=postgresql_psycopg2\nhost=postgres-hue-service\nport=5432\nuser=hue\npassword=huepassword\nname=hue\n\n# Hive Configuration\n[beeswax]\nhive_server_host=hiveserver2-service\nhive_server_port=10000\nserver_interface=hiveserver2\n\n# Hadoop Configuration  \n[hadoop]\n[[hdfs_clusters]]\n[[[default]]]\nfs_defaultfs=hdfs://namenode-service:9000\nwebhdfs_url=http://namenode-service:9870/webhdfs/v1\n\n[[yarn_clusters]]\n[[[default]]]\nresourcemanager_host=resourcemanager-service\nresourcemanager_port=8088\n\n# Spark Configuration\n[spark]\nlivy_server_host=livy-service\nlivy_server_port=8998\n\n# Job Browser\n[jobbrowser]\n[[yarn_clusters]]\n[[[default]]]\nresourcemanager_host=resourcemanager-service\nresourcemanager_port=8088\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"hue-config-complete","namespace":"default"}}
+  creationTimestamp: "2025-05-31T09:58:02Z"
+  name: hue-config-complete
+  namespace: default
+  resourceVersion: "162095"
+  uid: eaf494cb-0c78-497e-8244-e18d9ac7c7b2

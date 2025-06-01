@@ -1,0 +1,2058 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2025-05-31T10:13:30Z"
+    generateName: datanode-5b89d87698-
+    labels:
+      app: datanode
+      pod-template-hash: 5b89d87698
+    name: datanode-5b89d87698-nsdqv
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: datanode-5b89d87698
+      uid: 452c6ce8-080a-4486-aa41-a06119891449
+    resourceVersion: "202194"
+    uid: 18adbb9a-113f-4731-8689-31207293c16c
+  spec:
+    containers:
+    - env:
+      - name: CORE_CONF_fs_defaultFS
+        value: hdfs://namenode:8020
+      - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+        value: "false"
+      image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+      imagePullPolicy: IfNotPresent
+      name: datanode
+      ports:
+      - containerPort: 9864
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /hadoop/dfs/data
+        name: datanode-storage
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-rkq8k
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: datanode-storage
+    - name: kube-api-access-rkq8k
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:14Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T10:13:30Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:14Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:14Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T10:13:30Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://5acad42b4e113a829d627fde092569f69c6b435950be2597fccc6cfa4b6715a2
+      image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+      imageID: docker-pullable://bde2020/hadoop-datanode@sha256:ddf6e9ad55af4f73d2ccb6da31d9e3331ffb94d5f046126db4f40aa348d484bf
+      lastState:
+        terminated:
+          containerID: docker://59d3ec070f09c7e1735bfe1a062e7993f57751cd6c6aeca1936977ffc3915b0b
+          exitCode: 255
+          finishedAt: "2025-06-01T06:18:36Z"
+          reason: Error
+          startedAt: "2025-05-31T10:15:42Z"
+      name: datanode
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-06-01T06:19:08Z"
+      volumeMounts:
+      - mountPath: /hadoop/dfs/data
+        name: datanode-storage
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-rkq8k
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.158
+    podIPs:
+    - ip: 10.244.0.158
+    qosClass: BestEffort
+    startTime: "2025-05-31T10:13:30Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2025-06-01T06:31:24Z"
+    generateName: datanode-5f6d6786b-
+    labels:
+      app: datanode
+      pod-template-hash: 5f6d6786b
+    name: datanode-5f6d6786b-ttnmc
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: datanode-5f6d6786b
+      uid: 57954aec-bedc-4d20-9361-3547ce5fe00e
+    resourceVersion: "209493"
+    uid: 9636edea-141b-41a8-871d-6db289de4bbd
+  spec:
+    containers:
+    - args:
+      - -c
+      - ' sleep 30; hdfs datanode '
+      command:
+      - /bin/bash
+      env:
+      - name: CORE_CONF_fs_defaultFS
+        value: hdfs://namenode:9000
+      - name: CORE_CONF_hadoop_tmp_dir
+        value: /tmp/hadoop
+      - name: HDFS_CONF_dfs_replication
+        value: "1"
+      - name: HDFS_CONF_dfs_datanode_data_dir
+        value: /hadoop/dfs/data
+      - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+        value: "false"
+      image: apache/hadoop:3.3.4
+      imagePullPolicy: IfNotPresent
+      name: datanode
+      ports:
+      - containerPort: 9864
+        protocol: TCP
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1Gi
+        requests:
+          cpu: 250m
+          memory: 512Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /hadoop/dfs/data
+        name: datanode-data
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-lwx74
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: datanode-data
+    - name: kube-api-access-lwx74
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:31:32Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:31:24Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:31:24Z"
+      message: 'containers with unready status: [datanode]'
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:31:24Z"
+      message: 'containers with unready status: [datanode]'
+      reason: ContainersNotReady
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:31:24Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - image: apache/hadoop:3.3.4
+      imageID: ""
+      lastState: {}
+      name: datanode
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        waiting:
+          message: 'Back-off pulling image "apache/hadoop:3.3.4": ErrImagePull: Error
+            response from daemon: manifest for apache/hadoop:3.3.4 not found: manifest
+            unknown: manifest unknown'
+          reason: ImagePullBackOff
+      volumeMounts:
+      - mountPath: /hadoop/dfs/data
+        name: datanode-data
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-lwx74
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Pending
+    podIP: 10.244.0.161
+    podIPs:
+    - ip: 10.244.0.161
+    qosClass: Burstable
+    startTime: "2025-06-01T06:31:24Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{},"labels":{"app":"hive-client"},"name":"hive-client","namespace":"default"},"spec":{"containers":[{"args":["-c"," echo 'Copying Hadoop configuration files...'; cp /hadoop-config/core-site.xml /opt/hadoop/etc/hadoop/core-site.xml; cp /hadoop-config/hdfs-site.xml /opt/hadoop/etc/hadoop/hdfs-site.xml; echo 'Configuration files copied successfully'; echo 'New core-site.xml content:'; cat /opt/hadoop/etc/hadoop/core-site.xml; while true; do sleep 30; done "],"command":["/bin/bash"],"env":[{"name":"HIVE_HOME","value":"/opt/hive"},{"name":"HADOOP_HOME","value":"/opt/hadoop"},{"name":"JAVA_HOME","value":"/usr/local/openjdk-8"},{"name":"HADOOP_CONF_DIR","value":"/opt/hadoop/etc/hadoop"}],"image":"apache/hive:3.1.3","name":"hive-client","resources":{"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"250m","memory":"512Mi"}},"volumeMounts":[{"mountPath":"/opt/hive/conf/hive-site.xml","name":"hive-site-config","subPath":"hive-site.xml"},{"mountPath":"/opt/hive/lib/postgresql-jdbc.jar","name":"postgres-jdbc-driver","subPath":"postgresql-jdbc.jar"},{"mountPath":"/hadoop-config","name":"hadoop-config"}]}],"restartPolicy":"Always","volumes":[{"configMap":{"name":"hive-site-config"},"name":"hive-site-config"},{"configMap":{"name":"postgres-jdbc-driver"},"name":"postgres-jdbc-driver"},{"configMap":{"name":"hadoop-config"},"name":"hadoop-config"}]}}
+    creationTimestamp: "2025-05-31T19:11:52Z"
+    labels:
+      app: hive-client
+    name: hive-client
+    namespace: default
+    resourceVersion: "202140"
+    uid: 1a1be2c5-67a1-4707-916c-ce339140b852
+  spec:
+    containers:
+    - args:
+      - -c
+      - ' echo ''Copying Hadoop configuration files...''; cp /hadoop-config/core-site.xml
+        /opt/hadoop/etc/hadoop/core-site.xml; cp /hadoop-config/hdfs-site.xml /opt/hadoop/etc/hadoop/hdfs-site.xml;
+        echo ''Configuration files copied successfully''; echo ''New core-site.xml
+        content:''; cat /opt/hadoop/etc/hadoop/core-site.xml; while true; do sleep
+        30; done '
+      command:
+      - /bin/bash
+      env:
+      - name: HIVE_HOME
+        value: /opt/hive
+      - name: HADOOP_HOME
+        value: /opt/hadoop
+      - name: JAVA_HOME
+        value: /usr/local/openjdk-8
+      - name: HADOOP_CONF_DIR
+        value: /opt/hadoop/etc/hadoop
+      image: apache/hive:3.1.3
+      imagePullPolicy: IfNotPresent
+      name: hive-client
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1Gi
+        requests:
+          cpu: 250m
+          memory: 512Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /opt/hive/conf/hive-site.xml
+        name: hive-site-config
+        subPath: hive-site.xml
+      - mountPath: /opt/hive/lib/postgresql-jdbc.jar
+        name: postgres-jdbc-driver
+        subPath: postgresql-jdbc.jar
+      - mountPath: /hadoop-config
+        name: hadoop-config
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-tffl9
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: hive-site-config
+      name: hive-site-config
+    - configMap:
+        defaultMode: 420
+        name: postgres-jdbc-driver
+      name: postgres-jdbc-driver
+    - configMap:
+        defaultMode: 420
+        name: hadoop-config
+      name: hadoop-config
+    - name: kube-api-access-tffl9
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:11Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T19:11:52Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:11Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:11Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T19:11:52Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://1acb2b8995817d88e5154fce1ba9d15c817df32b5e080ac0575bfeb9095cd6c3
+      image: apache/hive:3.1.3
+      imageID: docker-pullable://apache/hive@sha256:d102ba29ad07e93c303894896203a80b903c0001d80221f1cb9fea92dcac06e4
+      lastState:
+        terminated:
+          containerID: docker://4948c5d084cc58b677eb351684f05b869871ed2526195b802bfbba260a7e6c9e
+          exitCode: 255
+          finishedAt: "2025-06-01T06:18:36Z"
+          reason: Error
+          startedAt: "2025-05-31T19:11:52Z"
+      name: hive-client
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-06-01T06:19:08Z"
+      volumeMounts:
+      - mountPath: /opt/hive/conf/hive-site.xml
+        name: hive-site-config
+      - mountPath: /opt/hive/lib/postgresql-jdbc.jar
+        name: postgres-jdbc-driver
+      - mountPath: /hadoop-config
+        name: hadoop-config
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-tffl9
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.154
+    podIPs:
+    - ip: 10.244.0.154
+    qosClass: Burstable
+    startTime: "2025-05-31T19:11:52Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2025-05-31T17:08:15Z"
+    generateName: hive-metastore-7f9f5b7c8f-
+    labels:
+      app: hive-metastore
+      pod-template-hash: 7f9f5b7c8f
+    name: hive-metastore-7f9f5b7c8f-4zt6s
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: hive-metastore-7f9f5b7c8f
+      uid: 4ed490ba-7fe6-4a85-8b28-daeeac89fa1a
+    resourceVersion: "209722"
+    uid: fb4727ed-f2dc-4be5-ab84-fb8ea2c03e0c
+  spec:
+    containers:
+    - args:
+      - --service
+      - metastore
+      command:
+      - /opt/hive/bin/hive
+      image: apache/hive:3.1.3
+      imagePullPolicy: IfNotPresent
+      name: hive-metastore
+      ports:
+      - containerPort: 9083
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /opt/hive/conf/hive-site.xml
+        name: hive-site-config
+        subPath: hive-site.xml
+      - mountPath: /opt/hive/lib/postgresql-42.2.18.jar
+        name: postgres-jdbc-driver
+        subPath: postgresql-42.2.18.jar
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xprf4
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    initContainers:
+    - args:
+      - "echo \"Waiting for PostgreSQL...\"\nuntil pg_isready -h postgres-hue -p 5432
+        -U hue; do \n  echo \"Waiting...\"\n  sleep 5\ndone\necho \"PostgreSQL ready!\"\n"
+      command:
+      - sh
+      - -c
+      image: postgres:13
+      imagePullPolicy: IfNotPresent
+      name: wait-for-postgres
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xprf4
+        readOnly: true
+    - args:
+      - |
+        echo "Waiting for Namenode..."
+        until nc -z namenode 8020; do
+          echo "Namenode not ready, waiting..."
+          sleep 5
+        done
+        echo "Namenode is ready!"
+      command:
+      - sh
+      - -c
+      image: busybox:1.35
+      imagePullPolicy: IfNotPresent
+      name: wait-for-namenode
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xprf4
+        readOnly: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: hive-site-config
+      name: hive-site-config
+    - configMap:
+        defaultMode: 420
+        name: postgres-jdbc-driver
+      name: postgres-jdbc-driver
+    - name: kube-api-access-xprf4
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:11Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T17:08:17Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T09:54:31Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T09:54:31Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T17:08:15Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://5da3c5a307495c3b8e48ece67758e41d195d6d0028b0c6ffe2a78c5148a7493b
+      image: apache/hive:3.1.3
+      imageID: docker-pullable://apache/hive@sha256:d102ba29ad07e93c303894896203a80b903c0001d80221f1cb9fea92dcac06e4
+      lastState:
+        terminated:
+          containerID: docker://a1fd5fd4bbc3c5e7687534343fddbdd1ee451d25c0f39693af35cf38482439b1
+          exitCode: 1
+          finishedAt: "2025-06-01T09:49:19Z"
+          reason: Error
+          startedAt: "2025-06-01T09:48:30Z"
+      name: hive-metastore
+      ready: true
+      restartCount: 25
+      started: true
+      state:
+        running:
+          startedAt: "2025-06-01T09:54:30Z"
+      volumeMounts:
+      - mountPath: /opt/hive/conf/hive-site.xml
+        name: hive-site-config
+      - mountPath: /opt/hive/lib/postgresql-42.2.18.jar
+        name: postgres-jdbc-driver
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xprf4
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    initContainerStatuses:
+    - containerID: docker://4761a92c719a601e1e5d3f26dbce15904ca7be0694cfba71afdab0b37b14b54e
+      image: postgres:13
+      imageID: docker-pullable://postgres@sha256:9b6a9504a4b804c8f0cf52f4d16477289f8e1dfa269a689d778feaca6fbe1f4f
+      lastState: {}
+      name: wait-for-postgres
+      ready: true
+      restartCount: 1
+      started: false
+      state:
+        terminated:
+          containerID: docker://4761a92c719a601e1e5d3f26dbce15904ca7be0694cfba71afdab0b37b14b54e
+          exitCode: 0
+          finishedAt: "2025-06-01T06:19:19Z"
+          reason: Completed
+          startedAt: "2025-06-01T06:19:09Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xprf4
+        readOnly: true
+        recursiveReadOnly: Disabled
+    - containerID: docker://18682da4bb176dc85a59e3f06bd9ef0ab481a73a905f59c0cf1984a896a11cab
+      image: busybox:1.35
+      imageID: docker-pullable://busybox@sha256:98ad9d1a2be345201bb0709b0d38655eb1b370145c7d94ca1fe9c421f76e245a
+      lastState: {}
+      name: wait-for-namenode
+      ready: true
+      restartCount: 0
+      started: false
+      state:
+        terminated:
+          containerID: docker://18682da4bb176dc85a59e3f06bd9ef0ab481a73a905f59c0cf1984a896a11cab
+          exitCode: 0
+          finishedAt: "2025-06-01T06:19:45Z"
+          reason: Completed
+          startedAt: "2025-06-01T06:19:24Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-xprf4
+        readOnly: true
+        recursiveReadOnly: Disabled
+    phase: Running
+    podIP: 10.244.0.159
+    podIPs:
+    - ip: 10.244.0.159
+    qosClass: BestEffort
+    startTime: "2025-05-31T17:08:15Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2025-05-31T16:44:39Z"
+    generateName: hive-schema-init-
+    labels:
+      batch.kubernetes.io/controller-uid: db11708a-d146-4b9d-89eb-b3c42b465c20
+      batch.kubernetes.io/job-name: hive-schema-init
+      controller-uid: db11708a-d146-4b9d-89eb-b3c42b465c20
+      job-name: hive-schema-init
+    name: hive-schema-init-kkpsn
+    namespace: default
+    ownerReferences:
+    - apiVersion: batch/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Job
+      name: hive-schema-init
+      uid: db11708a-d146-4b9d-89eb-b3c42b465c20
+    resourceVersion: "201991"
+    uid: d5dad01d-ab1e-4c57-9a1c-04e5b261ed53
+  spec:
+    containers:
+    - args:
+      - |
+        echo "Initializing Hive schema with PostgreSQL..." &&
+        /opt/hive/bin/schematool -initSchema -dbType postgres -verbose
+      command:
+      - /bin/bash
+      - -c
+      image: apache/hive:3.1.3
+      imagePullPolicy: IfNotPresent
+      name: hive
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /opt/hive/lib/postgresql-42.2.18.jar
+        name: jdbc-jar
+        subPath: postgresql-42.2.18.jar
+      - mountPath: /opt/hive/conf/hive-site.xml
+        name: hive-site
+        subPath: hive-site.xml
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-dhrpg
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: postgres-jdbc-driver
+      name: jdbc-jar
+    - configMap:
+        defaultMode: 420
+        name: hive-site-config
+      name: hive-site
+    - name: kube-api-access-dhrpg
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T16:44:46Z"
+      status: "False"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T16:44:39Z"
+      reason: PodCompleted
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T16:44:44Z"
+      reason: PodCompleted
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T16:44:44Z"
+      reason: PodCompleted
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T16:44:39Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://09a15656e54c350ea70465a64c5fc8542a2f4336c4adcd57e345d1846aec18c8
+      image: apache/hive:3.1.3
+      imageID: docker-pullable://apache/hive@sha256:d102ba29ad07e93c303894896203a80b903c0001d80221f1cb9fea92dcac06e4
+      lastState: {}
+      name: hive
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        terminated:
+          containerID: docker://09a15656e54c350ea70465a64c5fc8542a2f4336c4adcd57e345d1846aec18c8
+          exitCode: 0
+          finishedAt: "2025-05-31T16:44:44Z"
+          reason: Completed
+          startedAt: "2025-05-31T16:44:39Z"
+      volumeMounts:
+      - mountPath: /opt/hive/lib/postgresql-42.2.18.jar
+        name: jdbc-jar
+      - mountPath: /opt/hive/conf/hive-site.xml
+        name: hive-site
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-dhrpg
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Succeeded
+    qosClass: BestEffort
+    startTime: "2025-05-31T16:44:39Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2025-05-31T10:13:31Z"
+    generateName: hiveserver2-58d975488-
+    labels:
+      app: hiveserver2
+      pod-template-hash: 58d975488
+    name: hiveserver2-58d975488-zjxmn
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: hiveserver2-58d975488
+      uid: e4b127df-a283-4a74-ae20-d9f9a1169e89
+    resourceVersion: "208134"
+    uid: 27e1a1e0-4fdb-4a0c-9fd4-29c9c7928665
+  spec:
+    containers:
+    - args:
+      - --service
+      - hiveserver2
+      command:
+      - /opt/hive/bin/hive
+      env:
+      - name: SERVICE_NAME
+        value: hiveserver2
+      - name: SERVICE_OPTS
+        value: -Dhive.metastore.uris=thrift://hive-metastore:9083
+      image: apache/hive:3.1.3
+      imagePullPolicy: IfNotPresent
+      name: hiveserver2
+      ports:
+      - containerPort: 10000
+        protocol: TCP
+      - containerPort: 10002
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-kk2rt
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-kk2rt
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:10Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T10:13:31Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T09:26:48Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T09:26:48Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T10:13:31Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://670c686ce1fee666dcf0a9e57d19b4ced725566fe75a4ca8770aeca50c585f4b
+      image: apache/hive:3.1.3
+      imageID: docker-pullable://apache/hive@sha256:d102ba29ad07e93c303894896203a80b903c0001d80221f1cb9fea92dcac06e4
+      lastState:
+        terminated:
+          containerID: docker://f2cbf6095195609473c1f3d7537a12237d0d2abfaa26975b3df1e1bf2c974020
+          exitCode: 255
+          finishedAt: "2025-06-01T09:26:46Z"
+          reason: Error
+          startedAt: "2025-06-01T07:22:19Z"
+      name: hiveserver2
+      ready: true
+      restartCount: 23
+      started: true
+      state:
+        running:
+          startedAt: "2025-06-01T09:26:47Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-kk2rt
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.149
+    podIPs:
+    - ip: 10.244.0.149
+    qosClass: BestEffort
+    startTime: "2025-05-31T10:13:31Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      checksum/config: 2cf29cd052936ec7dcb6fe0c7b6e95a7c8a199d33887720fffc680b9b9fb610f
+      checksum/config-extra: 82449ce52e26d3fb34110efeba2d1aa0bf518bb90d06f7323dfdef2a18dadc1f
+      checksum/config-hive: c58fde318bb6a33b9e6a641bf274df60c32a7e64955105389950e1ad00006bb8
+      kubectl.kubernetes.io/restartedAt: "2025-05-31T16:27:57+05:30"
+    creationTimestamp: "2025-05-31T11:43:17Z"
+    generateName: hue-6c9f67d454-
+    labels:
+      pod: hue
+      pod-template-hash: 6c9f67d454
+    name: hue-6c9f67d454-d5z48
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: hue-6c9f67d454
+      uid: 74d879b1-343f-4cee-9aed-52616b2b2f43
+    resourceVersion: "202420"
+    uid: dffd39f0-3bed-48c1-85ba-d5d47f4cbd5f
+  spec:
+    containers:
+    - image: gethue/hue:latest
+      imagePullPolicy: Always
+      name: hue
+      ports:
+      - containerPort: 8888
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 30
+        httpGet:
+          path: /desktop/debug/is_alive
+          port: 8888
+          scheme: HTTP
+        initialDelaySeconds: 3
+        periodSeconds: 3
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        requests:
+          cpu: 50m
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /usr/share/hue/desktop/conf/hue.ini
+        name: hue-config
+        subPath: hue.ini
+      - mountPath: /etc/hive/conf/hive-site.xml
+        name: hive-config-volume
+        subPath: hive-site
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-9nkfx
+        readOnly: true
+    - image: gethue/nginx:latest
+      imagePullPolicy: Always
+      name: nginx
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 20m
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/nginx/sites-available/hue
+        name: nginx-config
+        subPath: hue
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-9nkfx
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: hue-config-complete
+      name: hue-config
+    - configMap:
+        defaultMode: 420
+        name: hive-config
+      name: hive-config-volume
+    - configMap:
+        defaultMode: 420
+        name: nginx-config
+      name: nginx-config
+    - name: kube-api-access-9nkfx
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:33Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T11:43:17Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:20:34Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:20:34Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T11:43:17Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://ad7e5c1aed5e5b5fd6528f32ad0f029a2af3c83d0c343e1349dc017d745d6032
+      image: gethue/hue:latest
+      imageID: docker-pullable://gethue/hue@sha256:26e0559832f84e2fa90c30ade6e743cdcd1b454fdb5ef92e010563c8207a6e03
+      lastState:
+        terminated:
+          containerID: docker://ae6aa7ee025bab2f448743362669f8b7ac9de088c204c62960766fcc09a705fa
+          exitCode: 255
+          finishedAt: "2025-06-01T06:18:36Z"
+          reason: Error
+          startedAt: "2025-05-31T11:43:20Z"
+      name: hue
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-06-01T06:19:17Z"
+      volumeMounts:
+      - mountPath: /usr/share/hue/desktop/conf/hue.ini
+        name: hue-config
+      - mountPath: /etc/hive/conf/hive-site.xml
+        name: hive-config-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-9nkfx
+        readOnly: true
+        recursiveReadOnly: Disabled
+    - containerID: docker://ffd7351c0026d8531fda6ed8a69d6291e41cde25dfe2fcea40824951f3182b7e
+      image: gethue/nginx:latest
+      imageID: docker-pullable://gethue/nginx@sha256:ec8f909702e17a4538f3f1a9aeeaca3c41b689bde97df3f92e0e6ef763dbe9f8
+      lastState:
+        terminated:
+          containerID: docker://1072cdb3456d2a947e8bff5df434680dc1e641dc144c374cb7d725474ca570ec
+          exitCode: 255
+          finishedAt: "2025-06-01T06:18:36Z"
+          reason: Error
+          startedAt: "2025-05-31T11:43:23Z"
+      name: nginx
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-06-01T06:19:30Z"
+      volumeMounts:
+      - mountPath: /etc/nginx/sites-available/hue
+        name: nginx-config
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-9nkfx
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.157
+    podIPs:
+    - ip: 10.244.0.157
+    qosClass: Burstable
+    startTime: "2025-05-31T11:43:17Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      checksum/config: 2cf29cd052936ec7dcb6fe0c7b6e95a7c8a199d33887720fffc680b9b9fb610f
+      checksum/config-extra: 82449ce52e26d3fb34110efeba2d1aa0bf518bb90d06f7323dfdef2a18dadc1f
+      checksum/config-hive: c58fde318bb6a33b9e6a641bf274df60c32a7e64955105389950e1ad00006bb8
+      kubectl.kubernetes.io/restartedAt: "2025-05-31T16:27:57+05:30"
+    creationTimestamp: "2025-05-31T11:43:31Z"
+    generateName: hue-6c9f67d454-
+    labels:
+      pod: hue
+      pod-template-hash: 6c9f67d454
+    name: hue-6c9f67d454-kkhml
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: hue-6c9f67d454
+      uid: 74d879b1-343f-4cee-9aed-52616b2b2f43
+    resourceVersion: "202428"
+    uid: 7527dbac-7a81-4b3d-80f1-99c6e7a32809
+  spec:
+    containers:
+    - image: gethue/hue:latest
+      imagePullPolicy: Always
+      name: hue
+      ports:
+      - containerPort: 8888
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 30
+        httpGet:
+          path: /desktop/debug/is_alive
+          port: 8888
+          scheme: HTTP
+        initialDelaySeconds: 3
+        periodSeconds: 3
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        requests:
+          cpu: 50m
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /usr/share/hue/desktop/conf/hue.ini
+        name: hue-config
+        subPath: hue.ini
+      - mountPath: /etc/hive/conf/hive-site.xml
+        name: hive-config-volume
+        subPath: hive-site
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-c87wq
+        readOnly: true
+    - image: gethue/nginx:latest
+      imagePullPolicy: Always
+      name: nginx
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 20m
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/nginx/sites-available/hue
+        name: nginx-config
+        subPath: hue
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-c87wq
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: hue-config-complete
+      name: hue-config
+    - configMap:
+        defaultMode: 420
+        name: hive-config
+      name: hive-config-volume
+    - configMap:
+        defaultMode: 420
+        name: nginx-config
+      name: nginx-config
+    - name: kube-api-access-c87wq
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:30Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T11:43:31Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:20:35Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:20:35Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T11:43:31Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://99ebd5c0589151d5b2ecda909d0e8761c550ba9ae2e88c53f3138a5dbfc8ded9
+      image: gethue/hue:latest
+      imageID: docker-pullable://gethue/hue@sha256:26e0559832f84e2fa90c30ade6e743cdcd1b454fdb5ef92e010563c8207a6e03
+      lastState:
+        terminated:
+          containerID: docker://651a68b3b194a8320bddb8107f2448301e69629bc419eb62ddc44dbf30a4d81a
+          exitCode: 255
+          finishedAt: "2025-06-01T06:18:36Z"
+          reason: Error
+          startedAt: "2025-05-31T11:43:36Z"
+      name: hue
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-06-01T06:19:15Z"
+      volumeMounts:
+      - mountPath: /usr/share/hue/desktop/conf/hue.ini
+        name: hue-config
+      - mountPath: /etc/hive/conf/hive-site.xml
+        name: hive-config-volume
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-c87wq
+        readOnly: true
+        recursiveReadOnly: Disabled
+    - containerID: docker://fc0f0bfd4319fef35dad50ad14a0ab64766c10ceae0cf2ff9d4a7a9cac07f18e
+      image: gethue/nginx:latest
+      imageID: docker-pullable://gethue/nginx@sha256:ec8f909702e17a4538f3f1a9aeeaca3c41b689bde97df3f92e0e6ef763dbe9f8
+      lastState:
+        terminated:
+          containerID: docker://eb2f9a2d286a839d2a8db0c0e5bf0747184b25c73b76223eebc175bdcb71612f
+          exitCode: 255
+          finishedAt: "2025-06-01T06:18:36Z"
+          reason: Error
+          startedAt: "2025-05-31T11:43:38Z"
+      name: nginx
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-06-01T06:19:27Z"
+      volumeMounts:
+      - mountPath: /etc/nginx/sites-available/hue
+        name: nginx-config
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-c87wq
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.150
+    podIPs:
+    - ip: 10.244.0.150
+    qosClass: Burstable
+    startTime: "2025-05-31T11:43:31Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2025-05-31T12:52:08Z"
+    generateName: namenode-69994dd646-
+    labels:
+      app: namenode
+      pod-template-hash: 69994dd646
+    name: namenode-69994dd646-lf7gw
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: namenode-69994dd646
+      uid: 7784f741-e7ec-4125-9fcf-59239655c021
+    resourceVersion: "202157"
+    uid: 8b723afc-35d6-4c25-9621-e54d972e8614
+  spec:
+    containers:
+    - args:
+      - |
+        # Set Hadoop configuration directory
+        export HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop
+
+        # Ensure the config directory exists
+        mkdir -p $HADOOP_CONF_DIR
+
+        # Create core-site.xml
+        cat > $HADOOP_CONF_DIR/core-site.xml << 'EOFXML'
+        <?xml version="1.0" encoding="UTF-8"?>
+        <configuration>
+          <property>
+            <name>fs.defaultFS</name>
+            <value>hdfs://namenode:8020</value>
+          </property>
+        </configuration>
+        EOFXML
+
+        # Create hdfs-site.xml with binding configuration
+        cat > $HADOOP_CONF_DIR/hdfs-site.xml << 'EOFXML'
+        <?xml version="1.0" encoding="UTF-8"?>
+        <configuration>
+          <property>
+            <name>dfs.namenode.name.dir</name>
+            <value>/hadoop/dfs/name</value>
+          </property>
+          <property>
+            <name>dfs.namenode.datanode.registration.ip-hostname-check</name>
+            <value>false</value>
+          </property>
+          <property>
+            <name>dfs.namenode.rpc-bind-host</name>
+            <value>0.0.0.0</value>
+          </property>
+          <property>
+            <name>dfs.namenode.servicerpc-bind-host</name>
+            <value>0.0.0.0</value>
+          </property>
+          <property>
+            <name>dfs.namenode.http-bind-host</name>
+            <value>0.0.0.0</value>
+          </property>
+        </configuration>
+        EOFXML
+
+        # Ensure namenode directory exists
+        mkdir -p /hadoop/dfs/name
+
+        # Format namenode if needed
+        if [ ! -f /hadoop/dfs/name/current/VERSION ]; then
+          echo "Formatting namenode..."
+          $HADOOP_HOME/bin/hdfs namenode -format -clusterId test -force -nonInteractive
+        fi
+
+        # Start namenode
+        echo "Starting namenode with bind host 0.0.0.0..."
+        $HADOOP_HOME/bin/hdfs namenode
+      command:
+      - /bin/bash
+      - -c
+      env:
+      - name: CLUSTER_NAME
+        value: test
+      - name: HDFS_CONF_fs_defaultFS
+        value: hdfs://namenode:8020
+      - name: CORE_CONF_fs_defaultFS
+        value: hdfs://namenode:8020
+      - name: HDFS_CONF_dfs_namenode_rpc_bind_host
+        value: 0.0.0.0
+      - name: HDFS_CONF_dfs_namenode_servicerpc_bind_host
+        value: 0.0.0.0
+      - name: HDFS_CONF_dfs_namenode_http_bind_host
+        value: 0.0.0.0
+      - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+        value: "false"
+      image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+      imagePullPolicy: IfNotPresent
+      name: namenode
+      ports:
+      - containerPort: 9870
+        protocol: TCP
+      - containerPort: 8020
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /hadoop/dfs/name
+        name: namenode-storage
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-7v25m
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: namenode-storage
+    - name: kube-api-access-7v25m
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:13Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T12:52:08Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:13Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:13Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T12:52:08Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://c55d6aca84c19bb54f333e8dcf2016d7739a849a777c6012d6e7dbc2bdd9d7a1
+      image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+      imageID: docker-pullable://bde2020/hadoop-namenode@sha256:51ad9293ec52083c5003ef0aaab00c3dd7d6335ddf495cc1257f97a272cab4c0
+      lastState:
+        terminated:
+          containerID: docker://42b700300263061c72ee0b9ea1c501e74339c267827efecd5f2d609e2109aef2
+          exitCode: 255
+          finishedAt: "2025-06-01T06:18:36Z"
+          reason: Error
+          startedAt: "2025-05-31T12:52:10Z"
+      name: namenode
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-06-01T06:19:08Z"
+      volumeMounts:
+      - mountPath: /hadoop/dfs/name
+        name: namenode-storage
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-7v25m
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.152
+    podIPs:
+    - ip: 10.244.0.152
+    qosClass: BestEffort
+    startTime: "2025-05-31T12:52:08Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2025-06-01T06:31:22Z"
+    generateName: namenode-7dbfdc8b68-
+    labels:
+      app: namenode
+      pod-template-hash: 7dbfdc8b68
+    name: namenode-7dbfdc8b68-8cs9h
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: namenode-7dbfdc8b68
+      uid: 6b2e5710-745d-44cc-8234-1cb992e39230
+    resourceVersion: "209763"
+    uid: 69328855-758d-43f2-a84e-225338fd402a
+  spec:
+    containers:
+    - args:
+      - -c
+      - ' hdfs namenode -format -force; hdfs namenode '
+      command:
+      - /bin/bash
+      env:
+      - name: CLUSTER_NAME
+        value: hadoop-cluster
+      - name: CORE_CONF_fs_defaultFS
+        value: hdfs://namenode:9000
+      - name: CORE_CONF_hadoop_tmp_dir
+        value: /tmp/hadoop
+      - name: HDFS_CONF_dfs_replication
+        value: "1"
+      - name: HDFS_CONF_dfs_namenode_name_dir
+        value: /hadoop/dfs/name
+      - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+        value: "false"
+      image: apache/hadoop:3.3.4
+      imagePullPolicy: IfNotPresent
+      name: namenode
+      ports:
+      - containerPort: 9000
+        protocol: TCP
+      - containerPort: 9870
+        protocol: TCP
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1Gi
+        requests:
+          cpu: 250m
+          memory: 512Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /hadoop/dfs/name
+        name: namenode-data
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-7pz7k
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: namenode-data
+    - name: kube-api-access-7pz7k
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:31:27Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:31:23Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:31:23Z"
+      message: 'containers with unready status: [namenode]'
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:31:23Z"
+      message: 'containers with unready status: [namenode]'
+      reason: ContainersNotReady
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:31:23Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - image: apache/hadoop:3.3.4
+      imageID: ""
+      lastState: {}
+      name: namenode
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        waiting:
+          message: 'Error response from daemon: manifest for apache/hadoop:3.3.4 not
+            found: manifest unknown: manifest unknown'
+          reason: ErrImagePull
+      volumeMounts:
+      - mountPath: /hadoop/dfs/name
+        name: namenode-data
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-7pz7k
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Pending
+    podIP: 10.244.0.160
+    podIPs:
+    - ip: 10.244.0.160
+    qosClass: Burstable
+    startTime: "2025-06-01T06:31:23Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2025-05-31T07:17:28Z"
+    generateName: postgres-hue-64795fd76c-
+    labels:
+      app: postgres-hue
+      pod-template-hash: 64795fd76c
+    name: postgres-hue-64795fd76c-glh85
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: postgres-hue-64795fd76c
+      uid: c37ba640-f994-4e78-94ba-42f0a82a47f3
+    resourceVersion: "202171"
+    uid: 0644e22d-5414-44e3-8a56-c7d517329ae1
+  spec:
+    containers:
+    - env:
+      - name: POSTGRES_USER
+        value: hue
+      - name: POSTGRES_PASSWORD
+        value: huepassword
+      - name: POSTGRES_DB
+        value: hue
+      - name: PGDATA
+        value: /var/lib/postgresql/data/pgdata
+      image: postgres:13
+      imagePullPolicy: IfNotPresent
+      name: postgres-hue
+      ports:
+      - containerPort: 5432
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 20m
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/postgresql/data
+        name: postgres-data
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-zkvfm
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: postgres-data
+      persistentVolumeClaim:
+        claimName: postgres-pvc
+    - name: kube-api-access-zkvfm
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:13Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T07:17:29Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:13Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:13Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T07:17:29Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://de188625a102ddf88cdcb333f212ec0d3b1b25cf488a8dcfae750d58c97d4746
+      image: postgres:13
+      imageID: docker-pullable://postgres@sha256:9b6a9504a4b804c8f0cf52f4d16477289f8e1dfa269a689d778feaca6fbe1f4f
+      lastState:
+        terminated:
+          containerID: docker://9a692897d1c37726373f9356cda9dda54879cf42284571b34f224ca0d66d2549
+          exitCode: 255
+          finishedAt: "2025-06-01T06:18:36Z"
+          reason: Error
+          startedAt: "2025-05-31T07:18:04Z"
+      name: postgres-hue
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-06-01T06:19:07Z"
+      volumeMounts:
+      - mountPath: /var/lib/postgresql/data
+        name: postgres-data
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-zkvfm
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.147
+    podIPs:
+    - ip: 10.244.0.147
+    qosClass: Burstable
+    startTime: "2025-05-31T07:17:29Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2025-05-31T12:48:38Z"
+    generateName: spark-master-555c884564-
+    labels:
+      app: spark-master
+      pod-template-hash: 555c884564
+    name: spark-master-555c884564-md278
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: spark-master-555c884564
+      uid: f802166d-5f25-41b5-ac97-66f2a4c6fdf4
+    resourceVersion: "202164"
+    uid: 76476a69-22c3-4a23-8714-b30fff16227e
+  spec:
+    containers:
+    - args:
+      - |
+        # Start Spark master
+        /spark/bin/spark-class org.apache.spark.deploy.master.Master             --host 0.0.0.0             --port 7077             --webui-port 8080
+      command:
+      - /bin/bash
+      - -c
+      env:
+      - name: SPARK_MASTER_HOST
+        value: 0.0.0.0
+      - name: SPARK_MASTER_PORT
+        value: "7077"
+      - name: SPARK_MASTER_WEBUI_PORT
+        value: "8080"
+      - name: SPARK_CONF_DIR
+        value: /spark/conf
+      image: bde2020/spark-master:3.3.0-hadoop3.3
+      imagePullPolicy: IfNotPresent
+      name: spark-master
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+      - containerPort: 7077
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-t7ts2
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-t7ts2
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:13Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T12:48:38Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:13Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-06-01T06:19:13Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-05-31T12:48:38Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://c1ff3de586f4279a04fb1938f1b8641fcce2d047897513cadb0d28468fab6fa9
+      image: bde2020/spark-master:3.3.0-hadoop3.3
+      imageID: docker-pullable://bde2020/spark-master@sha256:5d2623e337db28c25d4154f20bd81cd234ba7f0bae6b9af87602f47119e8acf7
+      lastState:
+        terminated:
+          containerID: docker://038b8af7a94ed1b6f6684616a420b022ae95c7122a8c39bebfa116f6526b3dca
+          exitCode: 255
+          finishedAt: "2025-06-01T06:18:36Z"
+          reason: Error
+          startedAt: "2025-05-31T12:50:07Z"
+      name: spark-master
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-06-01T06:19:08Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-t7ts2
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.156
+    podIPs:
+    - ip: 10.244.0.156
+    qosClass: BestEffort
+    startTime: "2025-05-31T12:48:38Z"
+kind: List
+metadata:
+  resourceVersion: ""

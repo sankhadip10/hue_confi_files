@@ -1,0 +1,33 @@
+2025-06-01 09:26:49: Starting HiveServer2
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/hive/lib/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Hive Session ID = e8f338d9-eeb7-471f-a6b3-183e630dc8cc
+Hive Session ID = becb78be-2971-4c28-a881-5f6b9a3e8bae
+Hive Session ID = 6c5c3a76-c34d-4b57-8629-456965649f4e
+Hive Session ID = 51700443-755d-4f07-bbac-21d536d925a6
+Hive Session ID = 922b2762-df4b-4ba0-8cd4-f9fd3a210c5e
+Hive Session ID = 3ed6185b-6515-4709-8dd4-ef5043f72c93
+Hive Session ID = 3ff6d273-1c5a-43ae-af0b-837bfa8511c3
+Hive Session ID = c9224c0f-157c-4ee8-8df8-c5752f5aac53
+Hive Session ID = cdb42049-a3b0-4e4d-b448-4de5f1e505ea
+Hive Session ID = d7eb084c-c1e8-4f39-96c6-549029d294f1
+Hive Session ID = 094a3cbf-f5b8-4a92-979f-6802ec884290
+Hive Session ID = 09f6d814-6f20-47ae-8b93-e6c6ef5477c5
+Hive Session ID = b18cbcab-29b2-435d-93a5-ae5b0afad1bd
+Hive Session ID = 07873ca0-509b-4926-90bd-80214a72f85a
+Hive Session ID = ead58000-20dd-4ca0-bdd2-cff12193007e
+Hive Session ID = c948d492-f373-472d-8cf6-4fe770642055
+Hive Session ID = 34f84ec8-4746-4ac0-97b4-ddc311b01f49
+Hive Session ID = d41234cd-43b9-493d-95ed-642a38fb5b46
+Hive Session ID = 9f589ee4-0aff-46c8-80cf-52b15888a1ba
+Hive Session ID = b5d82b71-2837-4526-b808-ed74af96095c
+Hive Session ID = 989b9cd5-75d2-4c04-bb10-9dd817a41105
+Hive Session ID = b6e1de04-5079-4b5a-a69b-7afcd5d1477f
+Hive Session ID = dcc7076e-4df2-4025-9da6-2ac8fb34c9e7
+Hive Session ID = 43104297-663d-4d7b-a43a-bf19cf0cd3d9
+Hive Session ID = 8b855949-353c-4c3e-ba9a-3e0c8ba2d419
+Hive Session ID = 2503b6b7-cf18-4eb2-ba46-ace3816358bd
+Hive Session ID = 738661d7-4506-4631-82b7-cbef9241613b

@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"namenode-service","namespace":"default"},"spec":{"ports":[{"name":"hdfs","port":9000,"targetPort":9000},{"name":"web","port":9870,"targetPort":9870}],"selector":{"app":"namenode"}}}
+  creationTimestamp: "2025-05-31T09:58:02Z"
+  name: namenode-service
+  namespace: default
+  resourceVersion: "196763"
+  uid: 8d5c4b0f-b9b6-4db5-a266-974070ca7a92
+spec:
+  clusterIP: 10.99.254.92
+  clusterIPs:
+  - 10.99.254.92
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: hdfs
+    port: 9000
+    protocol: TCP
+    targetPort: 8020
+  - name: web
+    port: 9870
+    protocol: TCP
+    targetPort: 9870
+  selector:
+    app: namenode
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

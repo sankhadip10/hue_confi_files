@@ -1,0 +1,145 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2025-05-31T12:48:38Z"
+  generateName: spark-master-555c884564-
+  labels:
+    app: spark-master
+    pod-template-hash: 555c884564
+  name: spark-master-555c884564-md278
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: spark-master-555c884564
+    uid: f802166d-5f25-41b5-ac97-66f2a4c6fdf4
+  resourceVersion: "202164"
+  uid: 76476a69-22c3-4a23-8714-b30fff16227e
+spec:
+  containers:
+  - args:
+    - |
+      # Start Spark master
+      /spark/bin/spark-class org.apache.spark.deploy.master.Master             --host 0.0.0.0             --port 7077             --webui-port 8080
+    command:
+    - /bin/bash
+    - -c
+    env:
+    - name: SPARK_MASTER_HOST
+      value: 0.0.0.0
+    - name: SPARK_MASTER_PORT
+      value: "7077"
+    - name: SPARK_MASTER_WEBUI_PORT
+      value: "8080"
+    - name: SPARK_CONF_DIR
+      value: /spark/conf
+    image: bde2020/spark-master:3.3.0-hadoop3.3
+    imagePullPolicy: IfNotPresent
+    name: spark-master
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    - containerPort: 7077
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-t7ts2
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-t7ts2
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:13Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T12:48:38Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:13Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:13Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T12:48:38Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://c1ff3de586f4279a04fb1938f1b8641fcce2d047897513cadb0d28468fab6fa9
+    image: bde2020/spark-master:3.3.0-hadoop3.3
+    imageID: docker-pullable://bde2020/spark-master@sha256:5d2623e337db28c25d4154f20bd81cd234ba7f0bae6b9af87602f47119e8acf7
+    lastState:
+      terminated:
+        containerID: docker://038b8af7a94ed1b6f6684616a420b022ae95c7122a8c39bebfa116f6526b3dca
+        exitCode: 255
+        finishedAt: "2025-06-01T06:18:36Z"
+        reason: Error
+        startedAt: "2025-05-31T12:50:07Z"
+    name: spark-master
+    ready: true
+    restartCount: 1
+    started: true
+    state:
+      running:
+        startedAt: "2025-06-01T06:19:08Z"
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-t7ts2
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 192.168.49.2
+  hostIPs:
+  - ip: 192.168.49.2
+  phase: Running
+  podIP: 10.244.0.156
+  podIPs:
+  - ip: 10.244.0.156
+  qosClass: BestEffort
+  startTime: "2025-05-31T12:48:38Z"

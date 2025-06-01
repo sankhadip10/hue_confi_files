@@ -1,0 +1,500 @@
+2025-05-31 11:48:04.263 UTC [8583] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:48:04.263 UTC [8583] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:48:05.284 UTC [8584] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:48:05.284 UTC [8584] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:48:08.304 UTC [8585] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:48:08.304 UTC [8585] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:48:09.331 UTC [8586] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:48:09.331 UTC [8586] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:48:12.354 UTC [8587] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:48:12.354 UTC [8587] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:48:14.621 UTC [8588] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:48:14.621 UTC [8588] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:48:17.650 UTC [8589] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:48:17.650 UTC [8589] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:48:18.679 UTC [8590] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:48:18.679 UTC [8590] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:48:21.704 UTC [8591] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:48:21.704 UTC [8591] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:48:22.733 UTC [8592] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:48:22.733 UTC [8592] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:53:39.305 UTC [8604] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:53:39.305 UTC [8604] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:53:41.166 UTC [8605] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:53:41.166 UTC [8605] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:53:44.473 UTC [8606] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:53:44.473 UTC [8606] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:53:45.776 UTC [8607] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:53:45.776 UTC [8607] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:53:48.870 UTC [8608] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:53:48.870 UTC [8608] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:53:49.968 UTC [8609] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:53:49.968 UTC [8609] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:53:52.997 UTC [8610] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:53:52.997 UTC [8610] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:53:54.023 UTC [8611] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:53:54.023 UTC [8611] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:53:58.285 UTC [8612] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:53:58.285 UTC [8612] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:53:59.306 UTC [8613] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:53:59.306 UTC [8613] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:02.329 UTC [8614] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:02.329 UTC [8614] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:03.351 UTC [8616] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:03.351 UTC [8616] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:06.374 UTC [8617] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:06.374 UTC [8617] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:07.398 UTC [8618] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:07.398 UTC [8618] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:10.427 UTC [8619] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:10.427 UTC [8619] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:11.455 UTC [8620] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:11.455 UTC [8620] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:14.478 UTC [8621] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:14.478 UTC [8621] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:15.520 UTC [8622] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:15.520 UTC [8622] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:18.547 UTC [8623] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:18.547 UTC [8623] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:19.576 UTC [8624] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:19.576 UTC [8624] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:22.607 UTC [8625] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:22.607 UTC [8625] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:54:23.638 UTC [8626] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:54:23.638 UTC [8626] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:30.861 UTC [8637] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:30.861 UTC [8637] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:31.916 UTC [8638] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:31.916 UTC [8638] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:35.011 UTC [8640] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:35.011 UTC [8640] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:36.039 UTC [8641] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:36.039 UTC [8641] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:39.066 UTC [8642] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:39.066 UTC [8642] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:40.110 UTC [8643] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:40.110 UTC [8643] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:44.365 UTC [8644] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:44.365 UTC [8644] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:45.389 UTC [8645] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:45.389 UTC [8645] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:48.412 UTC [8646] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:48.412 UTC [8646] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:49.437 UTC [8647] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:49.437 UTC [8647] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:52.461 UTC [8648] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:52.461 UTC [8648] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:53.481 UTC [8649] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:53.481 UTC [8649] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:56.502 UTC [8650] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:56.502 UTC [8650] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 11:59:57.526 UTC [8651] FATAL:  password authentication failed for user "hue"
+2025-05-31 11:59:57.526 UTC [8651] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:00:00.548 UTC [8652] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:00:00.548 UTC [8652] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:00:01.577 UTC [8653] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:00:01.577 UTC [8653] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:00:04.599 UTC [8654] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:00:04.599 UTC [8654] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:00:05.760 UTC [8655] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:00:05.760 UTC [8655] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:00:08.790 UTC [8656] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:00:08.790 UTC [8656] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:00:09.821 UTC [8657] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:00:09.821 UTC [8657] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:00:14.096 UTC [8658] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:00:14.096 UTC [8658] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:00:15.125 UTC [8659] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:00:15.125 UTC [8659] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:32.872 UTC [8671] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:32.872 UTC [8671] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:33.950 UTC [8673] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:33.950 UTC [8673] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:37.050 UTC [8674] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:37.050 UTC [8674] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:38.081 UTC [8675] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:38.081 UTC [8675] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:41.153 UTC [8676] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:41.153 UTC [8676] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:42.284 UTC [8677] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:42.284 UTC [8677] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:45.310 UTC [8678] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:45.310 UTC [8678] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:46.332 UTC [8679] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:46.332 UTC [8679] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:49.360 UTC [8680] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:49.360 UTC [8680] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:50.381 UTC [8681] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:50.381 UTC [8681] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:53.401 UTC [8682] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:53.401 UTC [8682] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:54.424 UTC [8683] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:54.424 UTC [8683] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:58.678 UTC [8684] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:58.678 UTC [8684] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:05:59.706 UTC [8685] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:05:59.706 UTC [8685] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:06:02.728 UTC [8686] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:06:02.728 UTC [8686] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:06:03.760 UTC [8687] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:06:03.760 UTC [8687] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:06:06.785 UTC [8688] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:06:06.785 UTC [8688] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:06:07.828 UTC [8689] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:06:07.828 UTC [8689] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:06:10.859 UTC [8690] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:06:10.859 UTC [8690] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:06:11.888 UTC [8691] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:06:11.888 UTC [8691] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:06:14.916 UTC [8692] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:06:14.916 UTC [8692] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:06:15.945 UTC [8693] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:06:15.945 UTC [8693] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:29.192 UTC [8704] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:29.192 UTC [8704] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:30.263 UTC [8705] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:30.263 UTC [8705] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:33.309 UTC [8706] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:33.309 UTC [8706] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:34.364 UTC [8707] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:34.364 UTC [8707] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:37.397 UTC [8709] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:37.397 UTC [8709] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:38.440 UTC [8710] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:38.440 UTC [8710] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:42.680 UTC [8711] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:42.680 UTC [8711] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:43.706 UTC [8712] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:43.706 UTC [8712] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:46.726 UTC [8713] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:46.726 UTC [8713] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:47.748 UTC [8714] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:47.748 UTC [8714] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:50.771 UTC [8715] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:50.771 UTC [8715] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:51.797 UTC [8716] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:51.797 UTC [8716] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:54.818 UTC [8717] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:54.818 UTC [8717] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:55.841 UTC [8718] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:55.841 UTC [8718] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:58.863 UTC [8719] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:58.863 UTC [8719] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:11:59.894 UTC [8720] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:11:59.894 UTC [8720] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:12:02.915 UTC [8721] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:12:02.915 UTC [8721] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:12:03.969 UTC [8722] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:12:03.969 UTC [8722] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:12:06.998 UTC [8723] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:12:06.998 UTC [8723] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:12:08.026 UTC [8724] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:12:08.026 UTC [8724] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:12:12.273 UTC [8725] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:12:12.273 UTC [8725] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:12:13.304 UTC [8727] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:12:13.304 UTC [8727] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:32.045 UTC [8738] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:32.045 UTC [8738] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:33.111 UTC [8739] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:33.111 UTC [8739] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:36.145 UTC [8740] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:36.145 UTC [8740] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:37.172 UTC [8742] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:37.172 UTC [8742] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:40.203 UTC [8743] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:40.203 UTC [8743] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:41.248 UTC [8744] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:41.248 UTC [8744] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:44.272 UTC [8745] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:44.272 UTC [8745] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:45.294 UTC [8746] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:45.294 UTC [8746] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:48.320 UTC [8747] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:48.320 UTC [8747] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:49.343 UTC [8748] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:49.343 UTC [8748] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:52.366 UTC [8749] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:52.366 UTC [8749] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:53.391 UTC [8750] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:53.391 UTC [8750] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:57.687 UTC [8751] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:57.687 UTC [8751] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:17:58.709 UTC [8752] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:17:58.709 UTC [8752] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:18:01.735 UTC [8753] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:18:01.735 UTC [8753] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:18:02.763 UTC [8754] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:18:02.763 UTC [8754] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:18:05.784 UTC [8755] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:18:05.784 UTC [8755] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:18:06.827 UTC [8756] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:18:06.827 UTC [8756] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:18:09.853 UTC [8757] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:18:09.853 UTC [8757] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:18:10.882 UTC [8758] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:18:10.882 UTC [8758] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:18:13.906 UTC [8759] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:18:13.906 UTC [8759] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:18:14.935 UTC [8760] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:18:14.935 UTC [8760] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:29.980 UTC [8771] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:29.980 UTC [8771] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:31.061 UTC [8772] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:31.061 UTC [8772] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:34.157 UTC [8773] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:34.157 UTC [8773] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:35.194 UTC [8774] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:35.194 UTC [8774] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:39.453 UTC [8776] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:39.453 UTC [8776] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:40.504 UTC [8777] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:40.504 UTC [8777] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:43.540 UTC [8778] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:43.540 UTC [8778] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:44.571 UTC [8779] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:44.571 UTC [8779] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:47.595 UTC [8780] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:47.595 UTC [8780] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:48.616 UTC [8781] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:48.616 UTC [8781] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:51.637 UTC [8782] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:51.637 UTC [8782] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:52.662 UTC [8783] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:52.662 UTC [8783] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:55.685 UTC [8784] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:55.685 UTC [8784] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:56.708 UTC [8785] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:56.708 UTC [8785] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:23:59.729 UTC [8786] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:23:59.729 UTC [8786] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:24:00.758 UTC [8787] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:24:00.758 UTC [8787] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:24:03.782 UTC [8788] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:24:03.782 UTC [8788] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:24:05.098 UTC [8789] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:24:05.098 UTC [8789] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:24:08.128 UTC [8790] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:24:08.128 UTC [8790] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:24:10.508 UTC [8792] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:24:10.508 UTC [8792] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:24:13.725 UTC [8793] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:24:13.725 UTC [8793] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:24:15.107 UTC [8794] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:24:15.107 UTC [8794] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:34.172 UTC [8805] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:34.172 UTC [8805] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:35.245 UTC [8806] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:35.245 UTC [8806] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:38.282 UTC [8807] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:38.282 UTC [8807] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:39.311 UTC [8809] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:39.311 UTC [8809] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:42.339 UTC [8810] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:42.339 UTC [8810] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:43.392 UTC [8811] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:43.392 UTC [8811] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:46.543 UTC [8812] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:46.543 UTC [8812] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:47.565 UTC [8813] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:47.565 UTC [8813] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:50.589 UTC [8814] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:50.589 UTC [8814] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:51.610 UTC [8815] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:51.610 UTC [8815] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:55.839 UTC [8816] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:55.839 UTC [8816] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:56.864 UTC [8817] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:56.864 UTC [8817] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:29:59.893 UTC [8818] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:29:59.893 UTC [8818] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:30:00.917 UTC [8819] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:30:00.917 UTC [8819] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:30:03.942 UTC [8820] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:30:03.942 UTC [8820] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:30:04.969 UTC [8821] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:30:04.969 UTC [8821] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:30:08.001 UTC [8822] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:30:08.001 UTC [8822] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:30:09.051 UTC [8823] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:30:09.051 UTC [8823] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:30:12.075 UTC [8824] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:30:12.075 UTC [8824] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:30:13.101 UTC [8825] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:30:13.101 UTC [8825] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:30:16.130 UTC [8826] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:30:16.130 UTC [8826] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:30:17.240 UTC [8827] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:30:17.240 UTC [8827] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 12:48:58.989 UTC [8867] FATAL:  password authentication failed for user "hue"
+2025-05-31 12:48:58.989 UTC [8867] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 13:37:31.336 UTC [8968] FATAL:  role "postgres" does not exist
+2025-05-31 16:39:57.057 UTC [9289] FATAL:  password authentication failed for user "hue"
+2025-05-31 16:39:57.057 UTC [9289] DETAIL:  Password does not match for user "hue".
+	Connection matched pg_hba.conf line 99: "host all all all md5"
+2025-05-31 17:44:47.090 UTC [9468] FATAL:  role "postgres" does not exist

@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: hue
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2025-05-31T06:54:12Z"
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  name: hue-balancer
+  namespace: default
+  resourceVersion: "155581"
+  uid: 8a6476b8-fd9c-4d31-a953-22b78565d241
+spec:
+  clusterIP: 10.98.192.123
+  clusterIPs:
+  - 10.98.192.123
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30088
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    pod: hue
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 86400
+  type: NodePort
+status:
+  loadBalancer: {}

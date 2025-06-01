@@ -1,0 +1,208 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    checksum/config: 2cf29cd052936ec7dcb6fe0c7b6e95a7c8a199d33887720fffc680b9b9fb610f
+    checksum/config-extra: 82449ce52e26d3fb34110efeba2d1aa0bf518bb90d06f7323dfdef2a18dadc1f
+    checksum/config-hive: c58fde318bb6a33b9e6a641bf274df60c32a7e64955105389950e1ad00006bb8
+    kubectl.kubernetes.io/restartedAt: "2025-05-31T16:27:57+05:30"
+  creationTimestamp: "2025-05-31T11:43:17Z"
+  generateName: hue-6c9f67d454-
+  labels:
+    pod: hue
+    pod-template-hash: 6c9f67d454
+  name: hue-6c9f67d454-d5z48
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: hue-6c9f67d454
+    uid: 74d879b1-343f-4cee-9aed-52616b2b2f43
+  resourceVersion: "202420"
+  uid: dffd39f0-3bed-48c1-85ba-d5d47f4cbd5f
+spec:
+  containers:
+  - image: gethue/hue:latest
+    imagePullPolicy: Always
+    name: hue
+    ports:
+    - containerPort: 8888
+      protocol: TCP
+    readinessProbe:
+      failureThreshold: 30
+      httpGet:
+        path: /desktop/debug/is_alive
+        port: 8888
+        scheme: HTTP
+      initialDelaySeconds: 3
+      periodSeconds: 3
+      successThreshold: 1
+      timeoutSeconds: 1
+    resources:
+      requests:
+        cpu: 50m
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /usr/share/hue/desktop/conf/hue.ini
+      name: hue-config
+      subPath: hue.ini
+    - mountPath: /etc/hive/conf/hive-site.xml
+      name: hive-config-volume
+      subPath: hive-site
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-9nkfx
+      readOnly: true
+  - image: gethue/nginx:latest
+    imagePullPolicy: Always
+    name: nginx
+    ports:
+    - containerPort: 80
+      protocol: TCP
+    resources:
+      requests:
+        cpu: 20m
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /etc/nginx/sites-available/hue
+      name: nginx-config
+      subPath: hue
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-9nkfx
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - configMap:
+      defaultMode: 420
+      name: hue-config-complete
+    name: hue-config
+  - configMap:
+      defaultMode: 420
+      name: hive-config
+    name: hive-config-volume
+  - configMap:
+      defaultMode: 420
+      name: nginx-config
+    name: nginx-config
+  - name: kube-api-access-9nkfx
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:33Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T11:43:17Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:20:34Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:20:34Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T11:43:17Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://ad7e5c1aed5e5b5fd6528f32ad0f029a2af3c83d0c343e1349dc017d745d6032
+    image: gethue/hue:latest
+    imageID: docker-pullable://gethue/hue@sha256:26e0559832f84e2fa90c30ade6e743cdcd1b454fdb5ef92e010563c8207a6e03
+    lastState:
+      terminated:
+        containerID: docker://ae6aa7ee025bab2f448743362669f8b7ac9de088c204c62960766fcc09a705fa
+        exitCode: 255
+        finishedAt: "2025-06-01T06:18:36Z"
+        reason: Error
+        startedAt: "2025-05-31T11:43:20Z"
+    name: hue
+    ready: true
+    restartCount: 1
+    started: true
+    state:
+      running:
+        startedAt: "2025-06-01T06:19:17Z"
+    volumeMounts:
+    - mountPath: /usr/share/hue/desktop/conf/hue.ini
+      name: hue-config
+    - mountPath: /etc/hive/conf/hive-site.xml
+      name: hive-config-volume
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-9nkfx
+      readOnly: true
+      recursiveReadOnly: Disabled
+  - containerID: docker://ffd7351c0026d8531fda6ed8a69d6291e41cde25dfe2fcea40824951f3182b7e
+    image: gethue/nginx:latest
+    imageID: docker-pullable://gethue/nginx@sha256:ec8f909702e17a4538f3f1a9aeeaca3c41b689bde97df3f92e0e6ef763dbe9f8
+    lastState:
+      terminated:
+        containerID: docker://1072cdb3456d2a947e8bff5df434680dc1e641dc144c374cb7d725474ca570ec
+        exitCode: 255
+        finishedAt: "2025-06-01T06:18:36Z"
+        reason: Error
+        startedAt: "2025-05-31T11:43:23Z"
+    name: nginx
+    ready: true
+    restartCount: 1
+    started: true
+    state:
+      running:
+        startedAt: "2025-06-01T06:19:30Z"
+    volumeMounts:
+    - mountPath: /etc/nginx/sites-available/hue
+      name: nginx-config
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-9nkfx
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 192.168.49.2
+  hostIPs:
+  - ip: 192.168.49.2
+  phase: Running
+  podIP: 10.244.0.157
+  podIPs:
+  - ip: 10.244.0.157
+  qosClass: Burstable
+  startTime: "2025-05-31T11:43:17Z"

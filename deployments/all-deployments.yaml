@@ -1,0 +1,683 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "2"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"datanode"},"name":"datanode","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"datanode"}},"template":{"metadata":{"labels":{"app":"datanode"}},"spec":{"containers":[{"args":["-c"," sleep 30; hdfs datanode "],"command":["/bin/bash"],"env":[{"name":"CORE_CONF_fs_defaultFS","value":"hdfs://namenode:9000"},{"name":"CORE_CONF_hadoop_tmp_dir","value":"/tmp/hadoop"},{"name":"HDFS_CONF_dfs_replication","value":"1"},{"name":"HDFS_CONF_dfs_datanode_data_dir","value":"/hadoop/dfs/data"},{"name":"HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check","value":"false"}],"image":"apache/hadoop:3.3.4","name":"datanode","ports":[{"containerPort":9864}],"resources":{"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"250m","memory":"512Mi"}},"volumeMounts":[{"mountPath":"/hadoop/dfs/data","name":"datanode-data"}]}],"volumes":[{"emptyDir":{},"name":"datanode-data"}]}}}}
+    creationTimestamp: "2025-05-31T10:13:30Z"
+    generation: 2
+    labels:
+      app: datanode
+    name: datanode
+    namespace: default
+    resourceVersion: "203983"
+    uid: fc39d27f-d91c-4999-b2f6-7a7198309604
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: datanode
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: datanode
+      spec:
+        containers:
+        - args:
+          - -c
+          - ' sleep 30; hdfs datanode '
+          command:
+          - /bin/bash
+          env:
+          - name: CORE_CONF_fs_defaultFS
+            value: hdfs://namenode:9000
+          - name: CORE_CONF_hadoop_tmp_dir
+            value: /tmp/hadoop
+          - name: HDFS_CONF_dfs_replication
+            value: "1"
+          - name: HDFS_CONF_dfs_datanode_data_dir
+            value: /hadoop/dfs/data
+          - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+            value: "false"
+          image: apache/hadoop:3.3.4
+          imagePullPolicy: IfNotPresent
+          name: datanode
+          ports:
+          - containerPort: 9864
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1Gi
+            requests:
+              cpu: 250m
+              memory: 512Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /hadoop/dfs/data
+            name: datanode-data
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir: {}
+          name: datanode-data
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2025-06-01T06:19:14Z"
+      lastUpdateTime: "2025-06-01T06:19:14Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2025-06-01T06:41:59Z"
+      lastUpdateTime: "2025-06-01T06:41:59Z"
+      message: ReplicaSet "datanode-5f6d6786b" has timed out progressing.
+      reason: ProgressDeadlineExceeded
+      status: "False"
+      type: Progressing
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 2
+    unavailableReplicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"hive-metastore","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"hive-metastore"}},"template":{"metadata":{"labels":{"app":"hive-metastore"}},"spec":{"containers":[{"args":["--service","metastore"],"command":["/opt/hive/bin/hive"],"image":"apache/hive:3.1.3","name":"hive-metastore","ports":[{"containerPort":9083}],"volumeMounts":[{"mountPath":"/opt/hive/conf/hive-site.xml","name":"hive-site-config","subPath":"hive-site.xml"},{"mountPath":"/opt/hive/lib/postgresql-42.2.18.jar","name":"postgres-jdbc-driver","subPath":"postgresql-42.2.18.jar"}]}],"initContainers":[{"args":["echo \"Waiting for PostgreSQL...\"\nuntil pg_isready -h postgres-hue -p 5432 -U hue; do \n  echo \"Waiting...\"\n  sleep 5\ndone\necho \"PostgreSQL ready!\"\n"],"command":["sh","-c"],"image":"postgres:13","name":"wait-for-postgres"},{"args":["echo \"Waiting for Namenode...\"\nuntil nc -z namenode 8020; do\n  echo \"Namenode not ready, waiting...\"\n  sleep 5\ndone\necho \"Namenode is ready!\"\n"],"command":["sh","-c"],"image":"busybox:1.35","name":"wait-for-namenode"}],"volumes":[{"configMap":{"name":"hive-site-config"},"name":"hive-site-config"},{"configMap":{"name":"postgres-jdbc-driver"},"name":"postgres-jdbc-driver"}]}}}}
+    creationTimestamp: "2025-05-31T17:08:15Z"
+    generation: 1
+    name: hive-metastore
+    namespace: default
+    resourceVersion: "209728"
+    uid: 5981b433-bb2e-40ec-83af-c38923ce4018
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: hive-metastore
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: hive-metastore
+      spec:
+        containers:
+        - args:
+          - --service
+          - metastore
+          command:
+          - /opt/hive/bin/hive
+          image: apache/hive:3.1.3
+          imagePullPolicy: IfNotPresent
+          name: hive-metastore
+          ports:
+          - containerPort: 9083
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/hive/conf/hive-site.xml
+            name: hive-site-config
+            subPath: hive-site.xml
+          - mountPath: /opt/hive/lib/postgresql-42.2.18.jar
+            name: postgres-jdbc-driver
+            subPath: postgresql-42.2.18.jar
+        dnsPolicy: ClusterFirst
+        initContainers:
+        - args:
+          - "echo \"Waiting for PostgreSQL...\"\nuntil pg_isready -h postgres-hue
+            -p 5432 -U hue; do \n  echo \"Waiting...\"\n  sleep 5\ndone\necho \"PostgreSQL
+            ready!\"\n"
+          command:
+          - sh
+          - -c
+          image: postgres:13
+          imagePullPolicy: IfNotPresent
+          name: wait-for-postgres
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - args:
+          - |
+            echo "Waiting for Namenode..."
+            until nc -z namenode 8020; do
+              echo "Namenode not ready, waiting..."
+              sleep 5
+            done
+            echo "Namenode is ready!"
+          command:
+          - sh
+          - -c
+          image: busybox:1.35
+          imagePullPolicy: IfNotPresent
+          name: wait-for-namenode
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: hive-site-config
+          name: hive-site-config
+        - configMap:
+            defaultMode: 420
+            name: postgres-jdbc-driver
+          name: postgres-jdbc-driver
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2025-05-31T17:08:15Z"
+      lastUpdateTime: "2025-05-31T17:08:18Z"
+      message: ReplicaSet "hive-metastore-7f9f5b7c8f" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2025-06-01T09:54:31Z"
+      lastUpdateTime: "2025-06-01T09:54:31Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "2"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"hiveserver2","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"hiveserver2"}},"template":{"metadata":{"labels":{"app":"hiveserver2"}},"spec":{"containers":[{"args":["--service","hiveserver2"],"command":["/opt/hive/bin/hive"],"env":[{"name":"SERVICE_NAME","value":"hiveserver2"},{"name":"SERVICE_OPTS","value":"-Dhive.metastore.uris=thrift://hive-metastore:9083"}],"image":"apache/hive:3.1.3","name":"hiveserver2","ports":[{"containerPort":10000},{"containerPort":10002}]}]}}}}
+    creationTimestamp: "2025-05-31T09:58:03Z"
+    generation: 2
+    name: hiveserver2
+    namespace: default
+    resourceVersion: "208140"
+    uid: 7460110f-e65e-4954-8a3d-99082e18d828
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: hiveserver2
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: hiveserver2
+      spec:
+        containers:
+        - args:
+          - --service
+          - hiveserver2
+          command:
+          - /opt/hive/bin/hive
+          env:
+          - name: SERVICE_NAME
+            value: hiveserver2
+          - name: SERVICE_OPTS
+            value: -Dhive.metastore.uris=thrift://hive-metastore:9083
+          image: apache/hive:3.1.3
+          imagePullPolicy: IfNotPresent
+          name: hiveserver2
+          ports:
+          - containerPort: 10000
+            protocol: TCP
+          - containerPort: 10002
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2025-05-31T09:58:03Z"
+      lastUpdateTime: "2025-05-31T10:21:18Z"
+      message: ReplicaSet "hiveserver2-58d975488" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2025-06-01T09:26:48Z"
+      lastUpdateTime: "2025-06-01T09:26:48Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "5"
+      meta.helm.sh/release-name: hue
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2025-05-31T06:54:12Z"
+    generation: 5
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      deployment: hue
+    name: hue
+    namespace: default
+    resourceVersion: "202434"
+    uid: eb2eb235-807e-47a4-9eda-cc90492ed195
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 2
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        pod: hue
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          checksum/config: 2cf29cd052936ec7dcb6fe0c7b6e95a7c8a199d33887720fffc680b9b9fb610f
+          checksum/config-extra: 82449ce52e26d3fb34110efeba2d1aa0bf518bb90d06f7323dfdef2a18dadc1f
+          checksum/config-hive: c58fde318bb6a33b9e6a641bf274df60c32a7e64955105389950e1ad00006bb8
+          kubectl.kubernetes.io/restartedAt: "2025-05-31T16:27:57+05:30"
+        creationTimestamp: null
+        labels:
+          pod: hue
+      spec:
+        containers:
+        - image: gethue/hue:latest
+          imagePullPolicy: Always
+          name: hue
+          ports:
+          - containerPort: 8888
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 30
+            httpGet:
+              path: /desktop/debug/is_alive
+              port: 8888
+              scheme: HTTP
+            initialDelaySeconds: 3
+            periodSeconds: 3
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            requests:
+              cpu: 50m
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /usr/share/hue/desktop/conf/hue.ini
+            name: hue-config
+            subPath: hue.ini
+          - mountPath: /etc/hive/conf/hive-site.xml
+            name: hive-config-volume
+            subPath: hive-site
+        - image: gethue/nginx:latest
+          imagePullPolicy: Always
+          name: nginx
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources:
+            requests:
+              cpu: 20m
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/sites-available/hue
+            name: nginx-config
+            subPath: hue
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: hue-config-complete
+          name: hue-config
+        - configMap:
+            defaultMode: 420
+            name: hive-config
+          name: hive-config-volume
+        - configMap:
+            defaultMode: 420
+            name: nginx-config
+          name: nginx-config
+  status:
+    availableReplicas: 2
+    conditions:
+    - lastTransitionTime: "2025-05-31T07:21:46Z"
+      lastUpdateTime: "2025-05-31T11:43:49Z"
+      message: ReplicaSet "hue-6c9f67d454" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2025-06-01T06:20:35Z"
+      lastUpdateTime: "2025-06-01T06:20:35Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 5
+    readyReplicas: 2
+    replicas: 2
+    updatedReplicas: 2
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "2"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"namenode"},"name":"namenode","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"namenode"}},"template":{"metadata":{"labels":{"app":"namenode"}},"spec":{"containers":[{"args":["-c"," hdfs namenode -format -force; hdfs namenode "],"command":["/bin/bash"],"env":[{"name":"CLUSTER_NAME","value":"hadoop-cluster"},{"name":"CORE_CONF_fs_defaultFS","value":"hdfs://namenode:9000"},{"name":"CORE_CONF_hadoop_tmp_dir","value":"/tmp/hadoop"},{"name":"HDFS_CONF_dfs_replication","value":"1"},{"name":"HDFS_CONF_dfs_namenode_name_dir","value":"/hadoop/dfs/name"},{"name":"HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check","value":"false"}],"image":"apache/hadoop:3.3.4","name":"namenode","ports":[{"containerPort":9000},{"containerPort":9870}],"resources":{"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"250m","memory":"512Mi"}},"volumeMounts":[{"mountPath":"/hadoop/dfs/name","name":"namenode-data"}]}],"volumes":[{"emptyDir":{},"name":"namenode-data"}]}}}}
+    creationTimestamp: "2025-05-31T12:52:08Z"
+    generation: 2
+    labels:
+      app: namenode
+    name: namenode
+    namespace: default
+    resourceVersion: "203981"
+    uid: 2a69eef7-9bdc-4bcb-b0af-54d4b3ab03c7
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: namenode
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: namenode
+      spec:
+        containers:
+        - args:
+          - -c
+          - ' hdfs namenode -format -force; hdfs namenode '
+          command:
+          - /bin/bash
+          env:
+          - name: CLUSTER_NAME
+            value: hadoop-cluster
+          - name: CORE_CONF_fs_defaultFS
+            value: hdfs://namenode:9000
+          - name: CORE_CONF_hadoop_tmp_dir
+            value: /tmp/hadoop
+          - name: HDFS_CONF_dfs_replication
+            value: "1"
+          - name: HDFS_CONF_dfs_namenode_name_dir
+            value: /hadoop/dfs/name
+          - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+            value: "false"
+          image: apache/hadoop:3.3.4
+          imagePullPolicy: IfNotPresent
+          name: namenode
+          ports:
+          - containerPort: 9000
+            protocol: TCP
+          - containerPort: 9870
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1Gi
+            requests:
+              cpu: 250m
+              memory: 512Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /hadoop/dfs/name
+            name: namenode-data
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir: {}
+          name: namenode-data
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2025-06-01T06:19:13Z"
+      lastUpdateTime: "2025-06-01T06:19:13Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2025-06-01T06:41:58Z"
+      lastUpdateTime: "2025-06-01T06:41:58Z"
+      message: ReplicaSet "namenode-7dbfdc8b68" has timed out progressing.
+      reason: ProgressDeadlineExceeded
+      status: "False"
+      type: Progressing
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 2
+    unavailableReplicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"postgres-hue"},"name":"postgres-hue","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"postgres-hue"}},"template":{"metadata":{"labels":{"app":"postgres-hue"}},"spec":{"containers":[{"env":[{"name":"POSTGRES_USER","value":"hue"},{"name":"POSTGRES_PASSWORD","value":"huepassword"},{"name":"POSTGRES_DB","value":"hue"},{"name":"PGDATA","value":"/var/lib/postgresql/data/pgdata"}],"image":"postgres:13","name":"postgres-hue","ports":[{"containerPort":5432}],"resources":{"requests":{"cpu":"20m"}},"volumeMounts":[{"mountPath":"/var/lib/postgresql/data","name":"postgres-data"}]}],"volumes":[{"name":"postgres-data","persistentVolumeClaim":{"claimName":"postgres-pvc"}}]}}}}
+    creationTimestamp: "2025-05-31T07:17:28Z"
+    generation: 1
+    labels:
+      app: postgres-hue
+    name: postgres-hue
+    namespace: default
+    resourceVersion: "202177"
+    uid: 2b85f3d4-593e-43f1-bb90-6113530f6bdc
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: postgres-hue
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: postgres-hue
+      spec:
+        containers:
+        - env:
+          - name: POSTGRES_USER
+            value: hue
+          - name: POSTGRES_PASSWORD
+            value: huepassword
+          - name: POSTGRES_DB
+            value: hue
+          - name: PGDATA
+            value: /var/lib/postgresql/data/pgdata
+          image: postgres:13
+          imagePullPolicy: IfNotPresent
+          name: postgres-hue
+          ports:
+          - containerPort: 5432
+            protocol: TCP
+          resources:
+            requests:
+              cpu: 20m
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /var/lib/postgresql/data
+            name: postgres-data
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-pvc
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2025-05-31T07:17:28Z"
+      lastUpdateTime: "2025-05-31T07:18:05Z"
+      message: ReplicaSet "postgres-hue-64795fd76c" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2025-06-01T06:19:13Z"
+      lastUpdateTime: "2025-06-01T06:19:13Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"spark-master","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"spark-master"}},"template":{"metadata":{"labels":{"app":"spark-master"}},"spec":{"containers":[{"args":["# Start Spark master\n/spark/bin/spark-class org.apache.spark.deploy.master.Master             --host 0.0.0.0             --port 7077             --webui-port 8080\n"],"command":["/bin/bash","-c"],"env":[{"name":"SPARK_MASTER_HOST","value":"0.0.0.0"},{"name":"SPARK_MASTER_PORT","value":"7077"},{"name":"SPARK_MASTER_WEBUI_PORT","value":"8080"},{"name":"SPARK_CONF_DIR","value":"/spark/conf"}],"image":"bde2020/spark-master:3.3.0-hadoop3.3","name":"spark-master","ports":[{"containerPort":8080},{"containerPort":7077}]}]}}}}
+    creationTimestamp: "2025-05-31T12:48:38Z"
+    generation: 1
+    name: spark-master
+    namespace: default
+    resourceVersion: "202170"
+    uid: c3a199f0-0986-47db-9dee-2cf41e091136
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: spark-master
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: spark-master
+      spec:
+        containers:
+        - args:
+          - |
+            # Start Spark master
+            /spark/bin/spark-class org.apache.spark.deploy.master.Master             --host 0.0.0.0             --port 7077             --webui-port 8080
+          command:
+          - /bin/bash
+          - -c
+          env:
+          - name: SPARK_MASTER_HOST
+            value: 0.0.0.0
+          - name: SPARK_MASTER_PORT
+            value: "7077"
+          - name: SPARK_MASTER_WEBUI_PORT
+            value: "8080"
+          - name: SPARK_CONF_DIR
+            value: /spark/conf
+          image: bde2020/spark-master:3.3.0-hadoop3.3
+          imagePullPolicy: IfNotPresent
+          name: spark-master
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          - containerPort: 7077
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2025-05-31T12:48:38Z"
+      lastUpdateTime: "2025-05-31T12:50:08Z"
+      message: ReplicaSet "spark-master-555c884564" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2025-06-01T06:19:13Z"
+      lastUpdateTime: "2025-06-01T06:19:13Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+kind: List
+metadata:
+  resourceVersion: ""

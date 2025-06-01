@@ -1,0 +1,145 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2025-05-31T07:17:28Z"
+  generateName: postgres-hue-64795fd76c-
+  labels:
+    app: postgres-hue
+    pod-template-hash: 64795fd76c
+  name: postgres-hue-64795fd76c-glh85
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: postgres-hue-64795fd76c
+    uid: c37ba640-f994-4e78-94ba-42f0a82a47f3
+  resourceVersion: "202171"
+  uid: 0644e22d-5414-44e3-8a56-c7d517329ae1
+spec:
+  containers:
+  - env:
+    - name: POSTGRES_USER
+      value: hue
+    - name: POSTGRES_PASSWORD
+      value: huepassword
+    - name: POSTGRES_DB
+      value: hue
+    - name: PGDATA
+      value: /var/lib/postgresql/data/pgdata
+    image: postgres:13
+    imagePullPolicy: IfNotPresent
+    name: postgres-hue
+    ports:
+    - containerPort: 5432
+      protocol: TCP
+    resources:
+      requests:
+        cpu: 20m
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/lib/postgresql/data
+      name: postgres-data
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-zkvfm
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: postgres-data
+    persistentVolumeClaim:
+      claimName: postgres-pvc
+  - name: kube-api-access-zkvfm
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:13Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T07:17:29Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:13Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:13Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T07:17:29Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://de188625a102ddf88cdcb333f212ec0d3b1b25cf488a8dcfae750d58c97d4746
+    image: postgres:13
+    imageID: docker-pullable://postgres@sha256:9b6a9504a4b804c8f0cf52f4d16477289f8e1dfa269a689d778feaca6fbe1f4f
+    lastState:
+      terminated:
+        containerID: docker://9a692897d1c37726373f9356cda9dda54879cf42284571b34f224ca0d66d2549
+        exitCode: 255
+        finishedAt: "2025-06-01T06:18:36Z"
+        reason: Error
+        startedAt: "2025-05-31T07:18:04Z"
+    name: postgres-hue
+    ready: true
+    restartCount: 1
+    started: true
+    state:
+      running:
+        startedAt: "2025-06-01T06:19:07Z"
+    volumeMounts:
+    - mountPath: /var/lib/postgresql/data
+      name: postgres-data
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-zkvfm
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 192.168.49.2
+  hostIPs:
+  - ip: 192.168.49.2
+  phase: Running
+  podIP: 10.244.0.147
+  podIPs:
+  - ip: 10.244.0.147
+  qosClass: Burstable
+  startTime: "2025-05-31T07:17:29Z"

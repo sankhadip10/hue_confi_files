@@ -1,0 +1,237 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2025-05-31T17:08:15Z"
+  generateName: hive-metastore-7f9f5b7c8f-
+  labels:
+    app: hive-metastore
+    pod-template-hash: 7f9f5b7c8f
+  name: hive-metastore-7f9f5b7c8f-4zt6s
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: hive-metastore-7f9f5b7c8f
+    uid: 4ed490ba-7fe6-4a85-8b28-daeeac89fa1a
+  resourceVersion: "209773"
+  uid: fb4727ed-f2dc-4be5-ab84-fb8ea2c03e0c
+spec:
+  containers:
+  - args:
+    - --service
+    - metastore
+    command:
+    - /opt/hive/bin/hive
+    image: apache/hive:3.1.3
+    imagePullPolicy: IfNotPresent
+    name: hive-metastore
+    ports:
+    - containerPort: 9083
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /opt/hive/conf/hive-site.xml
+      name: hive-site-config
+      subPath: hive-site.xml
+    - mountPath: /opt/hive/lib/postgresql-42.2.18.jar
+      name: postgres-jdbc-driver
+      subPath: postgresql-42.2.18.jar
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-xprf4
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  initContainers:
+  - args:
+    - "echo \"Waiting for PostgreSQL...\"\nuntil pg_isready -h postgres-hue -p 5432
+      -U hue; do \n  echo \"Waiting...\"\n  sleep 5\ndone\necho \"PostgreSQL ready!\"\n"
+    command:
+    - sh
+    - -c
+    image: postgres:13
+    imagePullPolicy: IfNotPresent
+    name: wait-for-postgres
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-xprf4
+      readOnly: true
+  - args:
+    - |
+      echo "Waiting for Namenode..."
+      until nc -z namenode 8020; do
+        echo "Namenode not ready, waiting..."
+        sleep 5
+      done
+      echo "Namenode is ready!"
+    command:
+    - sh
+    - -c
+    image: busybox:1.35
+    imagePullPolicy: IfNotPresent
+    name: wait-for-namenode
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-xprf4
+      readOnly: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - configMap:
+      defaultMode: 420
+      name: hive-site-config
+    name: hive-site-config
+  - configMap:
+      defaultMode: 420
+      name: postgres-jdbc-driver
+    name: postgres-jdbc-driver
+  - name: kube-api-access-xprf4
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:11Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T17:08:17Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T09:55:20Z"
+    message: 'containers with unready status: [hive-metastore]'
+    reason: ContainersNotReady
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T09:55:20Z"
+    message: 'containers with unready status: [hive-metastore]'
+    reason: ContainersNotReady
+    status: "False"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T17:08:15Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://5da3c5a307495c3b8e48ece67758e41d195d6d0028b0c6ffe2a78c5148a7493b
+    image: apache/hive:3.1.3
+    imageID: docker-pullable://apache/hive@sha256:d102ba29ad07e93c303894896203a80b903c0001d80221f1cb9fea92dcac06e4
+    lastState:
+      terminated:
+        containerID: docker://a1fd5fd4bbc3c5e7687534343fddbdd1ee451d25c0f39693af35cf38482439b1
+        exitCode: 1
+        finishedAt: "2025-06-01T09:49:19Z"
+        reason: Error
+        startedAt: "2025-06-01T09:48:30Z"
+    name: hive-metastore
+    ready: false
+    restartCount: 25
+    started: false
+    state:
+      terminated:
+        containerID: docker://5da3c5a307495c3b8e48ece67758e41d195d6d0028b0c6ffe2a78c5148a7493b
+        exitCode: 1
+        finishedAt: "2025-06-01T09:55:20Z"
+        reason: Error
+        startedAt: "2025-06-01T09:54:30Z"
+    volumeMounts:
+    - mountPath: /opt/hive/conf/hive-site.xml
+      name: hive-site-config
+    - mountPath: /opt/hive/lib/postgresql-42.2.18.jar
+      name: postgres-jdbc-driver
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-xprf4
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 192.168.49.2
+  hostIPs:
+  - ip: 192.168.49.2
+  initContainerStatuses:
+  - containerID: docker://4761a92c719a601e1e5d3f26dbce15904ca7be0694cfba71afdab0b37b14b54e
+    image: postgres:13
+    imageID: docker-pullable://postgres@sha256:9b6a9504a4b804c8f0cf52f4d16477289f8e1dfa269a689d778feaca6fbe1f4f
+    lastState: {}
+    name: wait-for-postgres
+    ready: true
+    restartCount: 1
+    started: false
+    state:
+      terminated:
+        containerID: docker://4761a92c719a601e1e5d3f26dbce15904ca7be0694cfba71afdab0b37b14b54e
+        exitCode: 0
+        finishedAt: "2025-06-01T06:19:19Z"
+        reason: Completed
+        startedAt: "2025-06-01T06:19:09Z"
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-xprf4
+      readOnly: true
+      recursiveReadOnly: Disabled
+  - containerID: docker://18682da4bb176dc85a59e3f06bd9ef0ab481a73a905f59c0cf1984a896a11cab
+    image: busybox:1.35
+    imageID: docker-pullable://busybox@sha256:98ad9d1a2be345201bb0709b0d38655eb1b370145c7d94ca1fe9c421f76e245a
+    lastState: {}
+    name: wait-for-namenode
+    ready: true
+    restartCount: 0
+    started: false
+    state:
+      terminated:
+        containerID: docker://18682da4bb176dc85a59e3f06bd9ef0ab481a73a905f59c0cf1984a896a11cab
+        exitCode: 0
+        finishedAt: "2025-06-01T06:19:45Z"
+        reason: Completed
+        startedAt: "2025-06-01T06:19:24Z"
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-xprf4
+      readOnly: true
+      recursiveReadOnly: Disabled
+  phase: Running
+  podIP: 10.244.0.159
+  podIPs:
+  - ip: 10.244.0.159
+  qosClass: BestEffort
+  startTime: "2025-05-31T17:08:15Z"

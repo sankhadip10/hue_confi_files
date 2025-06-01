@@ -1,0 +1,27 @@
+apiVersion: v1
+data:
+  hue-ini: |
+    [desktop]
+    secret_key=hue123
+    app_blacklist=filebrowser,search,hbase,security,jobbrowser,oozie
+    django_debug_mode=false
+    gunicorn_work_class=sync
+    enable_prometheus=true
+
+    [[task_server]]
+    enabled=false
+    broker_url=redis://redis:6379/0
+    result_cache='{"BACKEND": "django_redis.cache.RedisCache", "LOCATION": "redis://redis:6379/0", "OPTIONS": {"CLIENT_CLASS": "django_redis.client.DefaultClient"},"KEY_PREFIX": "queries"}'
+    celery_result_backend=redis://redis:6379/0
+kind: ConfigMap
+metadata:
+  annotations:
+    meta.helm.sh/release-name: hue
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2025-05-31T06:54:12Z"
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  name: hue-config-extra
+  namespace: default
+  resourceVersion: "155558"
+  uid: 26e88d1c-e5bb-4b7e-a047-7d9f62d4e6b0

@@ -1,0 +1,158 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2025-06-01T06:31:22Z"
+  generateName: namenode-7dbfdc8b68-
+  labels:
+    app: namenode
+    pod-template-hash: 7dbfdc8b68
+  name: namenode-7dbfdc8b68-8cs9h
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: namenode-7dbfdc8b68
+    uid: 6b2e5710-745d-44cc-8234-1cb992e39230
+  resourceVersion: "209763"
+  uid: 69328855-758d-43f2-a84e-225338fd402a
+spec:
+  containers:
+  - args:
+    - -c
+    - ' hdfs namenode -format -force; hdfs namenode '
+    command:
+    - /bin/bash
+    env:
+    - name: CLUSTER_NAME
+      value: hadoop-cluster
+    - name: CORE_CONF_fs_defaultFS
+      value: hdfs://namenode:9000
+    - name: CORE_CONF_hadoop_tmp_dir
+      value: /tmp/hadoop
+    - name: HDFS_CONF_dfs_replication
+      value: "1"
+    - name: HDFS_CONF_dfs_namenode_name_dir
+      value: /hadoop/dfs/name
+    - name: HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check
+      value: "false"
+    image: apache/hadoop:3.3.4
+    imagePullPolicy: IfNotPresent
+    name: namenode
+    ports:
+    - containerPort: 9000
+      protocol: TCP
+    - containerPort: 9870
+      protocol: TCP
+    resources:
+      limits:
+        cpu: 500m
+        memory: 1Gi
+      requests:
+        cpu: 250m
+        memory: 512Mi
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /hadoop/dfs/name
+      name: namenode-data
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-7pz7k
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - emptyDir: {}
+    name: namenode-data
+  - name: kube-api-access-7pz7k
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:31:27Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:31:23Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:31:23Z"
+    message: 'containers with unready status: [namenode]'
+    reason: ContainersNotReady
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:31:23Z"
+    message: 'containers with unready status: [namenode]'
+    reason: ContainersNotReady
+    status: "False"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:31:23Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - image: apache/hadoop:3.3.4
+    imageID: ""
+    lastState: {}
+    name: namenode
+    ready: false
+    restartCount: 0
+    started: false
+    state:
+      waiting:
+        message: 'Error response from daemon: manifest for apache/hadoop:3.3.4 not
+          found: manifest unknown: manifest unknown'
+        reason: ErrImagePull
+    volumeMounts:
+    - mountPath: /hadoop/dfs/name
+      name: namenode-data
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-7pz7k
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 192.168.49.2
+  hostIPs:
+  - ip: 192.168.49.2
+  phase: Pending
+  podIP: 10.244.0.160
+  podIPs:
+  - ip: 10.244.0.160
+  qosClass: Burstable
+  startTime: "2025-06-01T06:31:23Z"

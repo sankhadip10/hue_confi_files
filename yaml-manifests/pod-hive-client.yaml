@@ -1,0 +1,167 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{},"labels":{"app":"hive-client"},"name":"hive-client","namespace":"default"},"spec":{"containers":[{"args":["-c"," echo 'Copying Hadoop configuration files...'; cp /hadoop-config/core-site.xml /opt/hadoop/etc/hadoop/core-site.xml; cp /hadoop-config/hdfs-site.xml /opt/hadoop/etc/hadoop/hdfs-site.xml; echo 'Configuration files copied successfully'; echo 'New core-site.xml content:'; cat /opt/hadoop/etc/hadoop/core-site.xml; while true; do sleep 30; done "],"command":["/bin/bash"],"env":[{"name":"HIVE_HOME","value":"/opt/hive"},{"name":"HADOOP_HOME","value":"/opt/hadoop"},{"name":"JAVA_HOME","value":"/usr/local/openjdk-8"},{"name":"HADOOP_CONF_DIR","value":"/opt/hadoop/etc/hadoop"}],"image":"apache/hive:3.1.3","name":"hive-client","resources":{"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"250m","memory":"512Mi"}},"volumeMounts":[{"mountPath":"/opt/hive/conf/hive-site.xml","name":"hive-site-config","subPath":"hive-site.xml"},{"mountPath":"/opt/hive/lib/postgresql-jdbc.jar","name":"postgres-jdbc-driver","subPath":"postgresql-jdbc.jar"},{"mountPath":"/hadoop-config","name":"hadoop-config"}]}],"restartPolicy":"Always","volumes":[{"configMap":{"name":"hive-site-config"},"name":"hive-site-config"},{"configMap":{"name":"postgres-jdbc-driver"},"name":"postgres-jdbc-driver"},{"configMap":{"name":"hadoop-config"},"name":"hadoop-config"}]}}
+  creationTimestamp: "2025-05-31T19:11:52Z"
+  labels:
+    app: hive-client
+  name: hive-client
+  namespace: default
+  resourceVersion: "202140"
+  uid: 1a1be2c5-67a1-4707-916c-ce339140b852
+spec:
+  containers:
+  - args:
+    - -c
+    - ' echo ''Copying Hadoop configuration files...''; cp /hadoop-config/core-site.xml
+      /opt/hadoop/etc/hadoop/core-site.xml; cp /hadoop-config/hdfs-site.xml /opt/hadoop/etc/hadoop/hdfs-site.xml;
+      echo ''Configuration files copied successfully''; echo ''New core-site.xml content:'';
+      cat /opt/hadoop/etc/hadoop/core-site.xml; while true; do sleep 30; done '
+    command:
+    - /bin/bash
+    env:
+    - name: HIVE_HOME
+      value: /opt/hive
+    - name: HADOOP_HOME
+      value: /opt/hadoop
+    - name: JAVA_HOME
+      value: /usr/local/openjdk-8
+    - name: HADOOP_CONF_DIR
+      value: /opt/hadoop/etc/hadoop
+    image: apache/hive:3.1.3
+    imagePullPolicy: IfNotPresent
+    name: hive-client
+    resources:
+      limits:
+        cpu: 500m
+        memory: 1Gi
+      requests:
+        cpu: 250m
+        memory: 512Mi
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /opt/hive/conf/hive-site.xml
+      name: hive-site-config
+      subPath: hive-site.xml
+    - mountPath: /opt/hive/lib/postgresql-jdbc.jar
+      name: postgres-jdbc-driver
+      subPath: postgresql-jdbc.jar
+    - mountPath: /hadoop-config
+      name: hadoop-config
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-tffl9
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - configMap:
+      defaultMode: 420
+      name: hive-site-config
+    name: hive-site-config
+  - configMap:
+      defaultMode: 420
+      name: postgres-jdbc-driver
+    name: postgres-jdbc-driver
+  - configMap:
+      defaultMode: 420
+      name: hadoop-config
+    name: hadoop-config
+  - name: kube-api-access-tffl9
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:11Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T19:11:52Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:11Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-06-01T06:19:11Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-05-31T19:11:52Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://1acb2b8995817d88e5154fce1ba9d15c817df32b5e080ac0575bfeb9095cd6c3
+    image: apache/hive:3.1.3
+    imageID: docker-pullable://apache/hive@sha256:d102ba29ad07e93c303894896203a80b903c0001d80221f1cb9fea92dcac06e4
+    lastState:
+      terminated:
+        containerID: docker://4948c5d084cc58b677eb351684f05b869871ed2526195b802bfbba260a7e6c9e
+        exitCode: 255
+        finishedAt: "2025-06-01T06:18:36Z"
+        reason: Error
+        startedAt: "2025-05-31T19:11:52Z"
+    name: hive-client
+    ready: true
+    restartCount: 1
+    started: true
+    state:
+      running:
+        startedAt: "2025-06-01T06:19:08Z"
+    volumeMounts:
+    - mountPath: /opt/hive/conf/hive-site.xml
+      name: hive-site-config
+    - mountPath: /opt/hive/lib/postgresql-jdbc.jar
+      name: postgres-jdbc-driver
+    - mountPath: /hadoop-config
+      name: hadoop-config
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-tffl9
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 192.168.49.2
+  hostIPs:
+  - ip: 192.168.49.2
+  phase: Running
+  podIP: 10.244.0.154
+  podIPs:
+  - ip: 10.244.0.154
+  qosClass: Burstable
+  startTime: "2025-05-31T19:11:52Z"

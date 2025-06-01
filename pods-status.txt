@@ -1,0 +1,13 @@
+NAME                              READY   STATUS             RESTARTS        AGE     IP             NODE       NOMINATED NODE   READINESS GATES
+datanode-5b89d87698-nsdqv         1/1     Running            1 (3h36m ago)   23h     10.244.0.158   minikube   <none>           <none>
+datanode-5f6d6786b-ttnmc          0/1     ImagePullBackOff   0               3h23m   10.244.0.161   minikube   <none>           <none>
+hive-client                       1/1     Running            1 (3h36m ago)   14h     10.244.0.154   minikube   <none>           <none>
+hive-metastore-7f9f5b7c8f-4zt6s   1/1     Running            25 (6m ago)     16h     10.244.0.159   minikube   <none>           <none>
+hive-schema-init-kkpsn            0/1     Completed          0               17h     <none>         minikube   <none>           <none>
+hiveserver2-58d975488-zjxmn       1/1     Running            23 (28m ago)    23h     10.244.0.149   minikube   <none>           <none>
+hue-6c9f67d454-d5z48              2/2     Running            2 (3h36m ago)   22h     10.244.0.157   minikube   <none>           <none>
+hue-6c9f67d454-kkhml              2/2     Running            2 (3h36m ago)   22h     10.244.0.150   minikube   <none>           <none>
+namenode-69994dd646-lf7gw         1/1     Running            1 (3h36m ago)   21h     10.244.0.152   minikube   <none>           <none>
+namenode-7dbfdc8b68-8cs9h         0/1     ErrImagePull       0               3h23m   10.244.0.160   minikube   <none>           <none>
+postgres-hue-64795fd76c-glh85     1/1     Running            1 (3h36m ago)   26h     10.244.0.147   minikube   <none>           <none>
+spark-master-555c884564-md278     1/1     Running            1 (3h36m ago)   21h     10.244.0.156   minikube   <none>           <none>

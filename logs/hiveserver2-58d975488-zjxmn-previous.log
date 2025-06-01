@@ -1,0 +1,36 @@
+2025-06-01 07:22:20: Starting HiveServer2
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/hive/lib/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Hive Session ID = 0120f586-fadc-4cca-9cf2-211615204509
+Hive Session ID = 6ba2a4d7-72df-4d5e-bd85-11459918af26
+Hive Session ID = 8dcb87f2-fa0a-419b-93ee-7e33e184e380
+Hive Session ID = 2291e7e6-fb73-42f8-8e6f-50cedb0bef84
+Hive Session ID = cf6b6bae-52b4-4f1b-a9cc-bcbf5615e381
+Hive Session ID = bc4d3a9c-d545-42b3-8ae6-c871946e2498
+Hive Session ID = 8d0742a7-08f5-4f4b-9e12-72f87986884f
+Hive Session ID = 9986ca11-4f71-446f-a9ef-81826c699f30
+Hive Session ID = 46fdd63c-ad2f-45a6-bd94-796b0a275461
+Hive Session ID = d6fb8fd2-6792-4845-a7ce-020210171bfa
+Hive Session ID = 850df260-ae81-4bf6-9e9f-8a094c6b3661
+Hive Session ID = de11b698-1ccd-4dbd-8d48-d31529efc366
+Hive Session ID = efa6c2e0-8cfe-4985-97d2-6558bfecc2c1
+Hive Session ID = 39638301-af7e-441b-906e-41fbd7c346fd
+Hive Session ID = 2741ea70-049f-4925-8d93-a9d8fba07918
+Hive Session ID = 5a570a29-fcdf-4b55-aebd-a7f0b49d9b2f
+Hive Session ID = 2fbfda35-062f-4136-b945-e7728fce5ece
+Hive Session ID = 34b3dc23-a1bb-4b2f-a78e-b31144c2693a
+Hive Session ID = e33dd0c2-2e62-452e-99a9-0eccd6ec4915
+Hive Session ID = 1617168f-5ca5-46a9-b953-3b241215d843
+Hive Session ID = bfdac7c8-fda4-451a-81b9-5a83acb7de82
+Hive Session ID = 4c41f1f4-adfc-49b7-a485-81e0a6b9e38e
+Hive Session ID = 87ec5226-8dec-46a9-b358-89545512f47d
+Hive Session ID = 2c7d8bad-d14d-464f-b56a-759d1b4b11c2
+Hive Session ID = 2dd17f1d-1116-4b09-bfcc-629fc5fac934
+Hive Session ID = f803f988-f531-4eda-adea-be4b8a3e7833
+Hive Session ID = dea5d1da-39eb-4a79-b585-fc1b572ee787
+Hive Session ID = aa8c8dd8-2ef2-4494-bbc1-0bf2905a1a26
+Hive Session ID = 0f4ab479-f069-44f1-a936-247cce17f193
+Hive Session ID = d864ce8b-c44a-41c6-8261-9632d8b94c2f

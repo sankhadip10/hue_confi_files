@@ -1,0 +1,74 @@
+apiVersion: v1
+data:
+  hue-ini: |
+    [desktop]
+
+    [[database]]
+    engine=django.db.backends.postgresql
+    host=postgres-hue
+    port=5432
+    user=hue
+    password=huepassword
+    name=hue
+
+    [aws]
+    [[aws_accounts]]
+    [[[default]]]
+    access_key_id=
+    secret_access_key=
+    region=us-east-1
+
+    [notebook]
+    [[interpreters]]
+        [[[postgresql]]]
+      name = postgresql
+      interface=sqlalchemy
+      options='{"url": "postgresql://hue:hue@postgres-hue:5432/hue"}'
+  hue.ini: |
+    [desktop]
+    secret_key=YOUR_SECRET_KEY_HERE
+    http_host=0.0.0.0
+    http_port=8888
+    time_zone=UTC
+
+    [[database]]
+    engine=postgresql_psycopg2
+    host=postgres-hue
+    port=5432
+    user=hue
+    password=hue
+    name=hue
+
+    [beeswax]
+    hive_server_host=hiveserver2
+    hive_server_port=10000
+    hive_metastore_host=hive-metastore-fixed
+    hive_metastore_port=9083
+
+    [hadoop]
+    [[hdfs_clusters]]
+    [[[default]]]
+    fs_defaultfs=hdfs://namenode:8020
+    webhdfs_url=http://namenode:9870/webhdfs/v1
+
+    [[yarn_clusters]]
+    [[[default]]]
+    resourcemanager_api_url=http://spark-master:8080
+
+    [spark]
+    livy_server_host=spark-master
+    livy_server_port=8998
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"hue.ini":"[desktop]\nsecret_key=YOUR_SECRET_KEY_HERE\nhttp_host=0.0.0.0\nhttp_port=8888\ntime_zone=UTC\n\n[[database]]\nengine=postgresql_psycopg2\nhost=postgres-hue\nport=5432\nuser=hue\npassword=hue\nname=hue\n\n[beeswax]\nhive_server_host=hiveserver2\nhive_server_port=10000\nhive_metastore_host=hive-metastore-fixed\nhive_metastore_port=9083\n\n[hadoop]\n[[hdfs_clusters]]\n[[[default]]]\nfs_defaultfs=hdfs://namenode:8020\nwebhdfs_url=http://namenode:9870/webhdfs/v1\n\n[[yarn_clusters]]\n[[[default]]]\nresourcemanager_api_url=http://spark-master:8080\n\n[spark]\nlivy_server_host=spark-master\nlivy_server_port=8998\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"hue-config","namespace":"default"}}
+    meta.helm.sh/release-name: hue
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2025-05-31T06:54:12Z"
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  name: hue-config
+  namespace: default
+  resourceVersion: "164762"
+  uid: 7f05e6d0-730a-48fb-a99e-fb4c36a2041b
